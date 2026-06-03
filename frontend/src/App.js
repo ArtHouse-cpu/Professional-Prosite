@@ -5,7 +5,7 @@ import Landing from "@/pages/Landing";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/prosite">
         <Routes>
           <Route path="/" element={<Landing />} />
         </Routes>
