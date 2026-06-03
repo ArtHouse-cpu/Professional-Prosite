@@ -10,18 +10,65 @@ export default function Navbar() {
       className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[min(1200px,92vw)]"
     >
       <div className="glass-strong rounded-full px-4 sm:px-6 py-3 flex items-center justify-between">
-        <a href="#hero" data-testid="navbar-logo" className="flex items-center gap-2.5">
-          <div className="relative h-7 w-7 rounded-lg bg-gradient-to-br from-prosite-royal via-prosite-electric to-prosite-purple flex items-center justify-center">
-            <Sparkles className="h-3.5 w-3.5 text-white" strokeWidth={2.4} />
+        <a
+          href="#hero"
+          data-testid="navbar-logo"
+          className="flex items-center gap-2.5"
+        >
+          <div className="relative h-7 w-7 rounded-lg bg-white flex items-center justify-center">
+            <img
+              src="https://res.cloudinary.com/dzwto9zbu/image/upload/v1779959585/Atives_Logo_1_mpnssp.png"
+              alt="Atives Logo"
+              className="h-4 w-4 object-contain"
+            />
             <div className="absolute inset-0 rounded-lg blur-md bg-prosite-royal/40 -z-10" />
           </div>
-          <span className="font-display text-lg tracking-tight">Prosite</span>
+
+ <div className="flex flex-col items-center gap-0">
+  <span className="font-display text-lg tracking-tight leading-none">
+    Prosite
+  </span>
+  <span className="text-[12px] text-gray-300 leading-none">
+    by Atives
+  </span>
+</div>
         </a>
         <div className="hidden md:flex items-center gap-7 text-[13px] text-white/65 font-body">
-          <a href="#features" className="hover:text-white transition-colors" data-testid="nav-features">Features</a>
-          <a href="#monetize" className="hover:text-white transition-colors" data-testid="nav-monetize">Monetize</a>
-          <a href="#nfc" className="hover:text-white transition-colors" data-testid="nav-nfc">NFC Card</a>
-          <a href="#pricing" className="hover:text-white transition-colors" data-testid="nav-pricing">Pricing</a>
+          <a
+            href="#features"
+            className="hover:text-white transition-colors"
+            data-testid="nav-features"
+          >
+            Features
+          </a>
+          <a
+            href="#monetize"
+            className="hover:text-white transition-colors"
+            data-testid="nav-monetize"
+          >
+            Monetize
+          </a>
+          <a
+            href="#nfc"
+            className="hover:text-white transition-colors"
+            data-testid="nav-nfc"
+          >
+            NFC Card
+          </a>
+          <a
+            href="#pricing"
+            className="hover:text-white transition-colors"
+            data-testid="nav-pricing"
+          >
+            Pricing
+          </a>
+          <a
+            href="#faq"
+            className="hover:text-white transition-colors"
+            data-testid="nav-faq"
+          >
+            FAQ
+          </a>
         </div>
         <button
           data-testid="navbar-cta-start-membership"

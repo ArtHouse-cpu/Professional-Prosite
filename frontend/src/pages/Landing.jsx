@@ -16,7 +16,9 @@ import Fomo from "../components/prosite/Fomo";
 import NFCSection from "../components/prosite/NFCSection";
 import Pricing from "../components/prosite/Pricing";
 import FinalCTA from "../components/prosite/FinalCTA";
+import FAQ from "../components/prosite/FAQ";
 import Footer from "../components/prosite/Footer";
+import LeadModal from "../components/prosite/LeadModal";
 
 const IMG = {
   hero: "https://static.prod-images.emergentagent.com/jobs/62fc2aec-7228-49b1-af3a-7d731b78ca16/images/2400918348ec03148ff04f26f1e1e18d2b238000509cd774d1950bf87e17f130.png",
@@ -30,6 +32,7 @@ export default function Landing() {
   return (
     <PrositeProvider>
       <main data-testid="landing-page" className="relative min-h-screen bg-prosite-bg text-white font-body antialiased">
+        <LeadModal />
         <Navbar />
         <Hero chaoticImg={IMG.chaos} deviceImg={IMG.hero} />
         <CreatorMarquee />
@@ -45,6 +48,7 @@ export default function Landing() {
         <Fomo />
         <NFCSection nfcImg={IMG.nfc} />
         <Pricing />
+        <FAQ />
         <FinalCTA />
         <Footer />
       </main>

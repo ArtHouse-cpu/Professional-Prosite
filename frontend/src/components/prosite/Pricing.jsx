@@ -71,7 +71,7 @@ export default function Pricing() {
                     className="absolute inset-y-0 -left-1/2 w-1/2 bg-gradient-to-r from-transparent via-white/35 to-transparent skew-x-12 pointer-events-none"
                   />
                 </span>
-                <span className="font-body text-white/40 line-through text-2xl">₹1,799</span>
+                <span className="font-body text-white/40 line-through text-2xl">₹1,798</span>
               </div>
               <div className="text-[12.5px] text-white/55 font-body pb-2">
                 one-time · billed once · own it forever
@@ -89,24 +89,11 @@ export default function Pricing() {
               ))}
             </div>
 
-            <div className="relative mt-9 flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
-              <div>
-                <div className="text-[11px] uppercase tracking-[0.22em] text-white/45 mb-1.5">Optional Add-On</div>
-                <div className="flex items-center gap-3">
-                  <div className="h-9 w-12 rounded-md bg-gradient-to-br from-amber-200 via-amber-400 to-amber-700 ring-1 ring-amber-200/60" />
-                  <div>
-                    <div className="text-[13.5px] text-white font-medium">Gold Metal NFC Card</div>
-                    <div className="text-[11.5px] text-white/55">
-                      <span className="line-through mr-1.5">₹2,500</span>
-                      <span className="text-gradient-gold font-semibold">₹999</span> · default selected
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="relative mt-9 flex justify-center sm:justify-end">
               <button
                 data-testid="pricing-cta-start-membership"
                 onClick={openCheckout}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-black px-7 py-3.5 font-semibold text-[15px] hover:bg-white/95 transition ring-glow"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-white text-black px-7 py-3.5 font-semibold text-[15px] hover:bg-white/95 transition ring-glow"
               >
                 Start Membership →
               </button>
