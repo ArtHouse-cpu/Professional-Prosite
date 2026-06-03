@@ -13,11 +13,11 @@ import {
 
 const cards = [
   { icon: LayoutGrid, title: "Everything In One Place", sub: "Portfolio, services, products, contact." },
-  { icon: Sparkles, title: "Looks Premium", sub: "Cinematic dark UI clients screenshot." },
+  { icon: ShieldCheck, title: "100% Authentic", sub: "Identity verified with Govt.ID" },
   { icon: Brain, title: "Easy To Remember", sub: "One name. One link. Lifetime." },
   { icon: Eye, title: "Shows Real Work", sub: "Galleries, reels, case studies, reviews." },
-  { icon: Phone, title: "Easier To Contact", sub: "Booking, DMs, payments — all built-in." },
-  { icon: ShieldCheck, title: "More Professional", sub: "Trust without saying a single word." },
+  { icon: Phone, title: "Easier To Contact", sub: "Email, Whatsapp, Calls, DMs all built in." },
+  { icon: Sparkles, title: "More Professional", sub: "Trust without saying a single word." },
   { icon: Award, title: "Strong Personal Brand", sub: "An identity people respect and recall." },
   { icon: Heart, title: "Easier To Hire", sub: "Decision-makers approve faster." },
 ];

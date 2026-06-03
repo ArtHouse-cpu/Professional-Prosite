@@ -47,7 +47,7 @@ export default function FinalCTA() {
             onClick={openCheckout}
             className="group relative inline-flex items-center gap-3 rounded-full bg-white text-black px-10 py-5 font-semibold text-[17px] hover:bg-white/95 transition ring-glow"
           >
-            <span>Start Membership</span>
+            <span>Get Prosite</span>
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
             <span className="absolute -inset-3 rounded-full bg-prosite-royal/40 blur-3xl -z-10" />
           </button>
@@ -58,7 +58,7 @@ export default function FinalCTA() {
             <span className="h-1 w-1 rounded-full bg-white/20" />
             <span>No coding</span>
             <span className="h-1 w-1 rounded-full bg-white/20" />
-            <span>Built for creators</span>
+            <span>Built for creatives</span>
           </div>
         </motion.div>
       </div>

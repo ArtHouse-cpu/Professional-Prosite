@@ -19,6 +19,8 @@ import {
   CalendarCheck,
   MessageSquare,
   Share2,
+  Users,
+  Handshake
 } from "lucide-react";
 
 const features = [
@@ -35,10 +37,10 @@ const features = [
   { icon: QrCode, title: "QR Sharing" },
   { icon: Nfc, title: "NFC Support" },
   { icon: Link2, title: "Custom Links" },
-  { icon: Star, title: "Client Reviews" },
+  { icon: Users, title: "Monetize Network" },
   { icon: GalleryHorizontal, title: "Media Galleries" },
-  { icon: CalendarCheck, title: "Booking System" },
-  { icon: MessageSquare, title: "Contact Forms" },
+  { icon: Handshake, title: "Get Leads / Hired" },
+  { icon: MessageSquare, title: "Unify Contacts" },
   { icon: Share2, title: "Social Integrations" },
 ];
 
@@ -66,15 +68,14 @@ export default function BentoGrid() {
                 <div className="text-[11px] uppercase tracking-[0.2em] text-white/55 mb-3">Flagship</div>
                 <div className="font-display text-[32px] sm:text-[44px] leading-[0.95] tracking-tight">
                   A Prosite that <br />
-                  <span className="font-editorial italic text-prosite-neon">looks expensive.</span>
+                  <span className="font-editorial italic text-prosite-neon">works before you speak.</span>
                 </div>
                 <div className="mt-4 text-[14px] text-white/60 font-body max-w-md leading-relaxed">
-                  Cinematic dark UI, smart layouts, and effortless presentation — designed to make
-                  even your earliest work feel like a flagship release.
+                 Professional design, clear storytelling, and built-in credibility that helps people understand your value instantly.
                 </div>
               </div>
               <div className="flex flex-wrap gap-2 mt-6">
-                {["AI Layouts", "Cinematic Galleries", "Smart Sections", "Mobile First"].map((t) => (
+                {["Professional Identity", "Trusted Presence", "Easy Discovery", "One Link"].map((t) => (
                   <span key={t} className="glass-strong rounded-full px-3 py-1 text-[11.5px] text-white/75">
                     {t}
                   </span>

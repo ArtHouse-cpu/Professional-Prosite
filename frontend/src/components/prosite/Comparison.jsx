@@ -17,6 +17,7 @@ import {
   Star,
   MessageSquare,
   CreditCard,
+  Users, 
   Layout,
 } from "lucide-react";
 
@@ -35,11 +36,11 @@ const right = [
   { icon: Layout, label: "Portfolio" },
   { icon: ShoppingBag, label: "Products" },
   { icon: Briefcase, label: "Services" },
-  { icon: Calendar, label: "Booking" },
+  { icon: Calendar, label: "Events" },
   { icon: GraduationCap, label: "Courses" },
-  { icon: Star, label: "Testimonials" },
+  { icon: Star, label: "Social" },
   { icon: MessageSquare, label: "Contact" },
-  { icon: CreditCard, label: "Payments" },
+  { icon: Users, label: "Network" },
 ];
 
 export default function Comparison() {
@@ -103,7 +104,7 @@ export default function Comparison() {
 
             <div className="relative flex items-center justify-between mb-5">
               <div className="text-[11px] uppercase tracking-[0.2em] text-emerald-300/90">After</div>
-              <div className="text-[11px] text-white/45 font-body">prosite.in/<span className="text-white/85">mira</span></div>
+              <div className="text-[11px] text-white/45 font-body">pro/itsmkvisuals</div>
             </div>
             <div className="relative font-display text-2xl sm:text-3xl mb-6">
               One link. <span className="font-editorial italic text-prosite-neon">Everything.</span>

@@ -87,7 +87,7 @@ export default function Hero({ chaoticImg, deviceImg }) {
         >
           <div className="glass rounded-full px-3.5 py-1.5 flex items-center gap-2 text-[11.5px] text-white/75 font-body">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 pulse-dot" />
-            <span className="tracking-wide uppercase">Limited Launch · 50% off Lifetime</span>
+            <span className="tracking-wide uppercase">Special Offer · 50% off Lifetime</span>
           </div>
         </motion.div>
 
@@ -127,18 +127,11 @@ export default function Hero({ chaoticImg, deviceImg }) {
             onClick={openCheckout}
             className="group relative inline-flex items-center gap-2.5 rounded-full bg-white text-black px-7 py-3.5 font-semibold text-[15px] hover:bg-white/95 transition-all ring-glow"
           >
-            <span>Start Membership</span>
+            <span>Get Prosite</span>
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             <span className="absolute -inset-1 rounded-full bg-prosite-royal/30 blur-2xl -z-10 opacity-70" />
           </button>
-          <button
-            data-testid="hero-cta-watch-demo"
-            onClick={openDemo}
-            className="inline-flex items-center gap-2.5 rounded-full glass-strong text-white px-6 py-3.5 font-medium text-[14px] hover:bg-white/[0.06] transition-all"
-          >
-            <Play className="h-4 w-4 fill-white" />
-            <span>Watch Demo</span>
-          </button>
+        
         </motion.div>
 
         {/* Trust row */}
@@ -148,15 +141,13 @@ export default function Hero({ chaoticImg, deviceImg }) {
           transition={{ duration: 1, delay: 0.6 }}
           className="mt-7 flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-[11.5px] uppercase tracking-[0.18em] text-white/40"
         >
-          <span>5000+ Creatives</span>
+          <span>10k+ joined</span>
           <span className="h-1 w-1 rounded-full bg-white/20" />
           <span>Lifetime Access</span>
           <span className="h-1 w-1 rounded-full bg-white/20" />
           <span>Mobile Apps</span>
           <span className="h-1 w-1 rounded-full bg-white/20" />
-          <span>AI Powered</span>
-          <span className="h-1 w-1 rounded-full bg-white/20" />
-          <span>Built for Creators</span>
+          <span>Built for Creatives</span>
         </motion.div>
 
         {/* Split storytelling: chaos vs Prosite */}

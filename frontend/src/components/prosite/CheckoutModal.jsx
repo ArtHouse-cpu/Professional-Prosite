@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Check, Crown, ShieldCheck, Lock, ArrowRight, Sparkles, Nfc } from "lucide-react";
 import { toast, Toaster } from "sonner";
+import TermsSheet from "./TermsSheet";
 
-const NFC_IMG = "https://static.prod-images.emergentagent.com/jobs/62fc2aec-7228-49b1-af3a-7d731b78ca16/images/5a4b8330a8bbad2d51c269ca085e0dc24f6df79f1c1314ebc2271512f6869659.png";
+const NFC_IMG = "https://res.cloudinary.com/dzwto9zbu/image/upload/v1780505654/ChatGPT_Image_Jun_3_2026_10_09_45_PM_veceg4.png";
 
 const included = [
   "Beautiful Prosite",
@@ -12,12 +13,12 @@ const included = [
   "Super Inbox",
   "Sell Products & Services",
   "Sell Courses & Tickets",
-  "Unlimited Sharing",
+  "Surprise Gift",
   "Lifetime Access",
 ];
 
 export default function CheckoutModal({ open, onClose }) {
-  const [nfc, setNfc] = useState(false);
+  const [nfc, setNfc] = useState(true);
   const [step, setStep] = useState("review"); // review | otp | password | basic-details | payment | success
   const [form, setForm] = useState({ name: "", email: "", phone: "", otp: "", password: "", confirmPassword: "", city: "", creatorType: "Creator" });
   const [loading, setLoading] = useState(false);
@@ -35,6 +36,7 @@ export default function CheckoutModal({ open, onClose }) {
   const [couponError, setCouponError] = useState("");
   const [userStatus, setUserStatus] = useState(null);
   const [verificationMode, setVerificationMode] = useState(""); // "" | "otp" | "password"
+  const [showTerms, setShowTerms] = useState(false);
 
   const BACKEND_URL = process.env.REACT_APP_API_URL || "https://www.1atives.com";
     (typeof window !== "undefined" && window.location.hostname === "localhost"
@@ -160,7 +162,7 @@ export default function CheckoutModal({ open, onClose }) {
   const originalTotal = originalMembership + (nfc ? originalNfc : 0);
 
   if (nfc) {
-    netPrice += 899;
+    netPrice += 999;
   }
 
   const totalSaved = originalTotal - netPrice;
@@ -198,12 +200,12 @@ export default function CheckoutModal({ open, onClose }) {
         },
         body: JSON.stringify({
           amount: netPrice,
-          productinfo: "Start Membership" + (nfc ? " + NFC Card" : ""),
+          productinfo: "Get Prosite" + (nfc ? " + NFC Card" : ""),
           paymentType: "direct",
           customerInfo: {
             name: form.name || user?.fullName || "Anurag Tiwari",
             email: form.email || user?.email || "justinanurag0.2@gmail.com",
-            contact: form.phone || user?.phone || "+916200950087"
+            contact: form.phone || user?.phone || "+919407614963"
           },
           planDuration: null,
           plan: "start"
@@ -221,7 +223,7 @@ export default function CheckoutModal({ open, onClose }) {
         amount: orderData.order.amount,
         currency: orderData.order.currency,
         name: "Atives",
-        description: "Start Membership Lifetime Access" + (nfc ? " + NFC Card" : ""),
+        description: "Get Prosite Lifetime Access" + (nfc ? " + NFC Card" : ""),
         order_id: orderData.order.id,
         handler: async function (response) {
           setLoading(true);
@@ -744,7 +746,7 @@ export default function CheckoutModal({ open, onClose }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center"
+            className="fixed inset-0 z-40 flex items-end sm:items-center justify-center"
             data-testid="checkout-modal"
           >
             {/* Backdrop */}
@@ -768,13 +770,10 @@ export default function CheckoutModal({ open, onClose }) {
               {/* Header */}
               <div className="relative flex items-center justify-between px-6 sm:px-8 py-5 border-b border-white/[0.06]">
                 <div className="flex items-center gap-2.5">
-                  <div className="h-7 w-7 rounded-lg bg-gradient-to-br from-prosite-royal to-prosite-purple flex items-center justify-center">
-                    <Sparkles className="h-3.5 w-3.5 text-white" />
-                  </div>
+                 
                   <div>
-                    <div className="font-display text-base leading-none">Prosite Checkout</div>
+                    <div className="font-display text-base leading-none"> Checkout</div>
                     <div className="text-[10.5px] text-white/45 mt-1 flex items-center gap-1.5">
-                      <Lock className="h-3 w-3" /> Encrypted · 256-bit secure
                     </div>
                   </div>
                 </div>
@@ -792,7 +791,7 @@ export default function CheckoutModal({ open, onClose }) {
                   {/* Left — Summary */}
                   <div className="md:col-span-3 p-6 sm:p-8 border-b md:border-b-0 md:border-r border-white/[0.06]">
                     <div className="inline-flex items-center gap-1.5 glass rounded-full px-3 py-1 text-[10.5px] uppercase tracking-[0.2em] text-amber-200">
-                      <Crown className="h-3 w-3" /> Lifetime Membership
+                      <Crown className="h-3 w-3" /> Lifetime Start Membership
                     </div>
                     
                     {/* Big Price Display from reference image */}
@@ -824,10 +823,6 @@ export default function CheckoutModal({ open, onClose }) {
                       ))}
                     </div>
 
-                    <div className="mt-5 flex items-center gap-3 text-[11.5px] text-white/45">
-                      <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
-                      30-day creator guarantee · Refund if you don't love it.
-                    </div>
 
                     {/* NFC Card Visual Selection from reference image */}
                     <div 
@@ -857,7 +852,7 @@ export default function CheckoutModal({ open, onClose }) {
                           </p>
                           <div className="mt-2.5 flex items-baseline gap-2">
                             <span className="line-through text-[10px] text-white/30 font-body">₹2,500</span>
-                            <span className="text-[12px] font-bold text-amber-400 font-display">₹899</span>
+                            <span className="text-[12px] font-bold text-amber-400 font-display">₹999</span>
                           </div>
                         </div>
                       </div>
@@ -886,8 +881,8 @@ export default function CheckoutModal({ open, onClose }) {
                       
                       {nfc && (
                         <div className="flex items-center justify-between text-amber-400 animate-fade-in">
-                          <span>Gold NFC Card</span>
-                          <span className="font-semibold">₹899</span>
+                          <span>Gold Metal NFC Card</span>
+                          <span className="font-semibold">₹999</span>
                         </div>
                       )}
                       
@@ -987,16 +982,25 @@ export default function CheckoutModal({ open, onClose }) {
                           </div>
                         </div>
                       )}
+                       <div className="text-[10.5px] text-white/40 text-center font-body">
+                        {token
+                          ? "Click to proceed directly to payment."
+                          : verificationMode === "otp"
+                          ? `We've sent a 6-digit code to ${form.email}`
+                          : verificationMode === "password"
+                          ? `Enter your password to verify your account`
+                          : "This will check your account status and send an OTP."}
+                      </div>
 
                       <button
                         type="submit"
                         data-testid="checkout-pay-btn"
                         disabled={loading}
-                        className="w-full mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-white text-black px-6 py-3.5 font-semibold text-[14px] hover:bg-white/95 transition disabled:opacity-70 ring-glow"
+                        className="w-full mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-white text-black px-6 py-3.5 font-semibold text-[14px] hover:bg-white/95 transition disabled:opacity-70 ring-glow"
                       >
                         {loading ? (
                           <>
-                            <span className="h-3 w-3 rounded-full border-2 border-black/70 border-t-transparent animate-spin" />
+                            <span className="h-3 w-3 rounded-full border-2 border-black/70 border-t-transparent animate-spin " />
                             {verificationMode !== "" ? "Verifying..." : "Checking..."}
                           </>
                         ) : (
@@ -1010,15 +1014,7 @@ export default function CheckoutModal({ open, onClose }) {
                           </>
                         )}
                       </button>
-                      <div className="text-[10.5px] text-white/40 text-center font-body">
-                        {token
-                          ? "Click to proceed directly to payment."
-                          : verificationMode === "otp"
-                          ? `We've sent a 6-digit code to ${form.email}`
-                          : verificationMode === "password"
-                          ? `Enter your password to verify your account`
-                          : "This will check your account status and send an OTP."}
-                      </div>
+                     
                       {!!token && (
                         <div className="text-center pt-2">
                           <button
@@ -1031,7 +1027,11 @@ export default function CheckoutModal({ open, onClose }) {
                         </div>
                       )}
                     </form>
+                    <div className="mt-4 text-[10.5px] text-white/40 text-center font-body">
+                      By continuing, I agree to the <button type="button" onClick={() => setShowTerms(true)} className="underline hover:text-white/60 transition">Terms</button>
+                    </div>
                   </div>
+                  
                 </div>
               ) : step === "basic-details" ? (
                 <div className="p-8 sm:p-12 max-w-sm mx-auto">
@@ -1046,7 +1046,7 @@ export default function CheckoutModal({ open, onClose }) {
                     />
                     <Field
                       label="Phone Number"
-                      placeholder="+916200950087"
+                      placeholder="+919407614963"
                       value={form.phone}
                       onChange={(v) => setForm({ ...form, phone: v })}
                     />
@@ -1161,9 +1161,12 @@ export default function CheckoutModal({ open, onClose }) {
               )}
 
             </motion.div>
+        
           </motion.div>
         )}
       </AnimatePresence>
+
+      <TermsSheet open={showTerms} onOpenChange={setShowTerms} />
     </>
   );
 }
@@ -1185,8 +1188,8 @@ const Field = ({ label, value, onChange, type = "text", placeholder, testid }) =
 const SuccessView = ({ nfc, total, email, onClose, backendUrl }) => {
   const token = localStorage.getItem("token") || "";
 
-  const whatsappMessage = `Hello Atives, my email is ${email || ""}. My membership has been successfully activated. Amount: ₹${total}.`;
-  const whatsappUrl = `https://api.whatsapp.com/send?phone=916200950087&text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappMessage = `Hello Team, my email is ${email || ""}. My Lifetime Start Membership has been successfully activated. Amount: ₹${total},Please help me setup my Prosite.`;
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=919407614963&text=${encodeURIComponent(whatsappMessage)}`;
 
   useEffect(() => {
     // Attempt automatic popup for WhatsApp in a new tab after 1.5 seconds

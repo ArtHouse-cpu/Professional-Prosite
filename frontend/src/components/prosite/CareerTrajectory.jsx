@@ -13,19 +13,81 @@ import {
 import CountUp from "./CountUp";
 
 const withoutPath = [
-  { year: "Y1", label: "Posting on IG", value: "120 followers" },
-  { year: "Y2", label: "Random freelance gigs", value: "₹18k / month" },
-  { year: "Y3", label: "Burnout, hidden work", value: "Lost momentum" },
-  { year: "Y4", label: "Same loop", value: "Forgotten" },
+  {
+    year: "Y1",
+    label: "Fragmentation",
+    value: "Work scattered across platforms",
+  },
+  {
+    year: "Y2",
+    label: "Inconsistency",
+    value: "Different profiles tell different stories",
+  },
+  {
+    year: "Y3",
+    label: "Friction",
+    value: "People need to search to understand you",
+  },
+  {
+    year: "Y4",
+    label: "Obscurity",
+    value: "Great work becomes harder to discover",
+  },
+  {
+    year: "Y5",
+    label: "Repetition",
+    value: "Explaining yourself again and again",
+  },
+  {
+    year: "Y6",
+    label: "Dependence",
+    value: "Visibility relies on algorithms",
+  },
+  {
+    year: "Y7",
+    label: "Forgettable",
+    value: "Recognition fades between platforms",
+  },
 ];
 
+
 const withProsite = [
-  { icon: ImageIcon, year: "Day 1", label: "Prosite goes live", value: "One link to share" },
-  { icon: Inbox, year: "Week 2", label: "Inquiries roll in", value: "+312% in DMs" },
-  { icon: Briefcase, year: "Month 3", label: "Premium clients", value: "₹85k avg. brief" },
-  { icon: ShoppingBag, year: "Month 6", label: "Products & courses", value: "₹2.84L / month" },
-  { icon: Users, year: "Year 1", label: "Audience you own", value: "12k creatives" },
-  { icon: Crown, year: "Year 2", label: "Recognized identity", value: "Quietly admired" },
+  {
+    icon: ImageIcon,
+    year: "Day 1",
+    label: "Identity",
+    value: "One professional destination",
+  },
+  {
+    icon: Inbox,
+    year: "Week 2",
+    label: "Clarity",
+    value: "Everything important in one place",
+  },
+  {
+    icon: Briefcase,
+    year: "Month 3",
+    label: "Credibility",
+    value: "A stronger first impression",
+  },
+  {
+    icon: ShoppingBag,
+    year: "Month 6",
+    label: "Discoverability",
+    value: "Easier to find and share",
+  },
+  {
+    icon: Users,
+    year: "Year 1",
+    label: "Recognition",
+    value: "Work becomes memorable",
+  },
+  {
+    icon: Crown,
+    year: "Year 2",
+    label: "Reputation",
+    value: "Value compounds over time",
+  },
 ];
 
 // SVG path lengths used for stroke animation
@@ -191,8 +253,7 @@ export default function CareerTrajectory() {
                   <TrendingUp className="h-3 w-3" /> With Prosite
                 </div>
                 <div className="text-[12px] text-white font-body mt-0.5">
-                  <CountUp end={284500} prefix="₹" />
-                  <span className="text-white/45"> / month</span>
+                  <span className="text-white">High Growth</span>
                 </div>
               </div>
             </motion.div>
@@ -236,7 +297,6 @@ export default function CareerTrajectory() {
                   className="relative pl-6"
                 >
                   <span className="absolute left-0 top-1.5 h-2.5 w-2.5 rounded-full bg-red-400/70 ring-4 ring-red-500/10" />
-                  <div className="text-[10.5px] uppercase tracking-[0.18em] text-white/35">{p.year}</div>
                   <div className="text-[14.5px] text-white/85 font-body">{p.label}</div>
                   <div className="text-[12px] text-white/45 font-body">{p.value}</div>
                 </motion.li>
@@ -275,7 +335,6 @@ export default function CareerTrajectory() {
                 >
                   <span className="absolute left-0 top-1.5 h-3 w-3 rounded-full bg-gradient-to-br from-prosite-electric to-prosite-purple ring-4 ring-prosite-royal/15" />
                   <div className="flex-1">
-                    <div className="text-[10.5px] uppercase tracking-[0.18em] text-white/45">{year}</div>
                     <div className="flex items-center gap-2 mt-0.5">
                       <Icon className="h-3.5 w-3.5 text-prosite-electric" strokeWidth={1.7} />
                       <span className="text-[14.5px] text-white font-body">{label}</span>

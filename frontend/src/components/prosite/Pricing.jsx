@@ -14,10 +14,10 @@ const features = [
   "Sell Courses",
   "Sell Event Tickets",
   "Sell Services",
-  "Booking System",
+  "Get Hired/Leads",
   "Insights & Analytics",
   "QR + NFC Sharing",
-  "Custom Domain Ready",
+  "Monetize Network",
 ];
 
 export default function Pricing() {
@@ -27,7 +27,7 @@ export default function Pricing() {
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8">
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="text-[11px] uppercase tracking-[0.22em] text-prosite-neon/80 font-body mb-4">
-            Limited Launch Pricing
+            Special offer
           </div>
           <h2 className="font-display text-[40px] sm:text-[60px] lg:text-[72px] leading-[0.95] tracking-tight">
             One payment. <br />
@@ -95,7 +95,7 @@ export default function Pricing() {
                 onClick={openCheckout}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-white text-black px-7 py-3.5 font-semibold text-[15px] hover:bg-white/95 transition ring-glow"
               >
-                Start Membership →
+                Get Prosite →
               </button>
             </div>
           </div>

@@ -39,7 +39,7 @@ export default function Navbar() {
             className="hover:text-white transition-colors"
             data-testid="nav-features"
           >
-            Features
+            Benefits
           </a>
           <a
             href="#monetize"
@@ -75,7 +75,7 @@ export default function Navbar() {
           onClick={openCheckout}
           className="group relative inline-flex items-center gap-2 rounded-full bg-white text-black px-4 sm:px-5 py-2 text-[13px] font-semibold hover:bg-white/90 transition-all"
         >
-          <span>Start Membership</span>
+          <span>Get Prosite</span>
           <span className="text-prosite-royal">→</span>
         </button>
       </div>

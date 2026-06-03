@@ -53,7 +53,7 @@ export default function NFCSection({ nfcImg }) {
               >
                 <div className="relative">
                   <img
-                    src={nfcImg}
+                    src="https://res.cloudinary.com/dzwto9zbu/image/upload/v1780505654/ChatGPT_Image_Jun_3_2026_10_09_45_PM_veceg4.png"
                     alt="Gold metal NFC card"
                     className="max-h-[78vh] max-w-[78%] object-contain drop-shadow-[0_30px_60px_rgba(245,158,11,0.3)]"
                     style={{ maxHeight: "420px" }}

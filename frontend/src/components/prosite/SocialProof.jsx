@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Star, TrendingUp, Inbox, ShoppingBag } from "lucide-react";
+import { Star, TrendingUp, Inbox, ShoppingBag, Users, UserPlus,Globe } from "lucide-react";
 import CountUp from "./CountUp";
 
 const testimonials = [
@@ -35,10 +35,44 @@ const testimonials = [
 ];
 
 const metrics = [
-  { icon: Inbox, label: "Avg. inquiries", value: <><span>+</span><CountUp end={312} /><span>%</span></> },
-  { icon: ShoppingBag, label: "Creator sales (90d)", value: <><span>₹</span><CountUp end={4.2} decimals={1} /><span> Cr</span></> },
-  { icon: TrendingUp, label: "Avg. profile views", value: <><span>+</span><CountUp end={5.7} decimals={1} /><span>×</span></> },
-  { icon: Star, label: "Avg. client rating", value: <><CountUp end={4.9} decimals={1} /><span> / 5</span></> },
+  {
+    icon: Users,
+    label: "Served",
+    value: (
+      <>
+        <span>+</span>
+        <CountUp end={50} />
+        <span>K</span>
+      </>
+    ),
+  },
+  {
+    icon: UserPlus,
+    label: "Joined",
+    value: (
+      <>
+        <span>+</span>
+        <CountUp end={10} />
+        <span>K</span>
+      </>
+    ),
+  },
+  {
+    icon: TrendingUp,
+    label: "Generated",
+    value: (
+      <>
+        <span>+</span>
+        <CountUp end={500} />
+        <span>K</span>
+      </>
+    ),
+  },
+  {
+    icon: Globe,
+    label: "Countries",
+    value: <CountUp end={3} />,
+  },
 ];
 
 export default function SocialProof() {
@@ -50,7 +84,7 @@ export default function SocialProof() {
             Already growing
           </div>
           <h2 className="font-display text-[36px] sm:text-[56px] lg:text-[64px] leading-[0.95] tracking-tight">
-            Creators are already <br />
+            Creatives are already <br />
             <span className="font-editorial italic text-gradient-luxe">growing</span> with Prosites.
           </h2>
         </div>

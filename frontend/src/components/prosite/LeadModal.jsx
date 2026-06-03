@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Sparkles, User, Mail, Phone, Briefcase, ArrowRight } from "lucide-react";
+import {
+  X,
+  Sparkles,
+  User,
+  Mail,
+  Phone,
+  Briefcase,
+  ArrowRight,
+} from "lucide-react";
 import { toast } from "sonner";
 
 export default function LeadModal() {
@@ -10,14 +18,29 @@ export default function LeadModal() {
   const [phone, setPhone] = useState("");
   const [creatorType, setCreatorType] = useState("");
   const [creatorTypes, setCreatorTypes] = useState([
-    "Visitor", "Student", "Artist", "Designer", "Artisan", "Photographer", 
-    "Architect", "Comedian", "Yoga Therapist", "Poet", "Writer", "Video Editor", 
-    "Influencer", "Digital Creator", "Dancer", "Singer", "Other Creative"
+    "Visitor",
+    "Student",
+    "Artist",
+    "Designer",
+    "Artisan",
+    "Photographer",
+    "Architect",
+    "Comedian",
+    "Yoga Therapist",
+    "Poet",
+    "Writer",
+    "Video Editor",
+    "Influencer",
+    "Digital Creator",
+    "Dancer",
+    "Singer",
+    "Other Creative",
   ]);
   const [loading, setLoading] = useState(false);
   const [fetchingTypes, setFetchingTypes] = useState(false);
 
-  const BACKEND_URL = process.env.REACT_APP_API_URL || 
+  const BACKEND_URL =
+    process.env.REACT_APP_API_URL ||
     (typeof window !== "undefined" && window.location.hostname === "localhost"
       ? "https://www.1atives.com"
       : "https://www.1atives.com");
@@ -33,7 +56,7 @@ export default function LeadModal() {
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
-      
+
       // Fetch creator types from Atives platform API
       const fetchCreatorTypes = async () => {
         setFetchingTypes(true);
@@ -49,12 +72,14 @@ export default function LeadModal() {
           setFetchingTypes(false);
         }
       };
-      
+
       fetchCreatorTypes();
     } else {
       document.body.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open, BACKEND_URL]);
 
   const handleClose = () => {
@@ -118,29 +143,33 @@ export default function LeadModal() {
             <div className="pointer-events-none absolute -top-24 -left-24 h-48 w-48 rounded-full radial-purple opacity-40 blur-2xl" />
             <div className="pointer-events-none absolute -bottom-24 -right-24 h-48 w-48 rounded-full radial-blue opacity-40 blur-2xl" />
 
-            <button
-              onClick={handleClose}
-              className="absolute top-5 right-5 h-8 w-8 rounded-full glass flex items-center justify-center hover:bg-white/[0.08] transition"
-              aria-label="Close form"
-            >
-              <X className="h-4 w-4 text-white/60 hover:text-white" />
-            </button>
-
             {/* Title / Header */}
-            <div className="relative text-center mb-6">
-              <div className="mx-auto h-12 w-12 rounded-2xl bg-prosite-electric/15 flex items-center justify-center mb-4 ring-glow">
-                <Sparkles className="h-5 w-5 text-prosite-electric" />
-              </div>
-              <h3 className="font-display text-2xl font-bold tracking-tight text-white">Join the Community</h3>
-              <p className="text-[12px] text-white/50 mt-1.5 font-body leading-relaxed max-w-[280px] mx-auto">
-                Get early access, updates, and showcase your creative work.
-              </p>
-            </div>
+<div className="flex items-center justify-between mb-6">
+  <span className="font-display text-2xl font-semibold tracking-tight text-white">
+    Get Invited
+  </span>
 
-            <form onSubmit={handleSubmit} className="space-y-4 relative text-left">
+  <div className="h-8 w-8  rounded-2xl bg-white flex items-center justify-center ring-glow">
+    <div className="relative h-8 w-8 rounded-lg bg-white flex items-center justify-center">
+      <img
+        src="https://res.cloudinary.com/dzwto9zbu/image/upload/v1779959585/Atives_Logo_1_mpnssp.png"
+        alt="Atives Logo"
+        className="h-6 w-6 object-contain"
+      />
+      <div className="absolute inset-0 rounded-lg blur-md bg-prosite-royal/40 -z-10" />
+    </div>
+  </div>
+</div>
+
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-4 relative text-left"
+            >
               {/* Name Field */}
               <label className="block">
-                <span className="block text-[10.5px] uppercase tracking-[0.2em] text-white/45 mb-1.5 font-body font-semibold">Full Name</span>
+                <span className="block text-[10.5px] uppercase tracking-[0.2em] text-white/45 mb-1.5 font-body font-semibold">
+                  Full Name
+                </span>
                 <div className="relative">
                   <User className="absolute left-3.5 top-1/2 transform -translate-y-1/2 h-4 w-4 text-white/30" />
                   <input
@@ -156,7 +185,9 @@ export default function LeadModal() {
 
               {/* Email Field */}
               <label className="block">
-                <span className="block text-[10.5px] uppercase tracking-[0.2em] text-white/45 mb-1.5 font-body font-semibold">Email Address</span>
+                <span className="block text-[10.5px] uppercase tracking-[0.2em] text-white/45 mb-1.5 font-body font-semibold">
+                  Email Address
+                </span>
                 <div className="relative">
                   <Mail className="absolute left-3.5 top-1/2 transform -translate-y-1/2 h-4 w-4 text-white/30" />
                   <input
@@ -172,7 +203,9 @@ export default function LeadModal() {
 
               {/* Phone Field */}
               <label className="block">
-                <span className="block text-[10.5px] uppercase tracking-[0.2em] text-white/45 mb-1.5 font-body font-semibold">Phone Number</span>
+                <span className="block text-[10.5px] uppercase tracking-[0.2em] text-white/45 mb-1.5 font-body font-semibold">
+                  Phone Number
+                </span>
                 <div className="relative">
                   <Phone className="absolute left-3.5 top-1/2 transform -translate-y-1/2 h-4 w-4 text-white/30" />
                   <input
@@ -188,7 +221,9 @@ export default function LeadModal() {
 
               {/* Creator Type Field */}
               <label className="block">
-                <span className="block text-[10.5px] uppercase tracking-[0.2em] text-white/45 mb-1.5 font-body font-semibold">Creator Profile</span>
+                <span className="block text-[10.5px] uppercase tracking-[0.2em] text-white/45 mb-1.5 font-body font-semibold">
+                  Creator Profile
+                </span>
                 <div className="relative">
                   <Briefcase className="absolute left-3.5 top-1/2 transform -translate-y-1/2 h-4 w-4 text-white/30 pointer-events-none" />
                   <select
@@ -197,9 +232,19 @@ export default function LeadModal() {
                     required
                     className="w-full rounded-2xl bg-white/[0.04] border border-white/[0.08] focus:border-prosite-electric focus:bg-white/[0.06] outline-none pl-10 pr-10 py-3 text-[13px] text-white placeholder:text-white/20 appearance-none transition font-body"
                   >
-                    <option value="" disabled className="bg-[#0A0A12] text-white/30">Select your specialty...</option>
+                    <option
+                      value=""
+                      disabled
+                      className="bg-[#0A0A12] text-white/30"
+                    >
+                      Select your specialty...
+                    </option>
                     {creatorTypes.map((type) => (
-                      <option key={type} value={type} className="bg-[#0A0A12] text-white/80 hover:bg-[#141424]">
+                      <option
+                        key={type}
+                        value={type}
+                        className="bg-[#0A0A12] text-white/80 hover:bg-[#141424]"
+                      >
                         {type}
                       </option>
                     ))}
@@ -216,7 +261,7 @@ export default function LeadModal() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-white text-black px-6 py-3.5 font-semibold text-[13.5px] hover:bg-white/95 transition disabled:opacity-70 ring-glow"
+                className="w-full mt-9 inline-flex items-center justify-center gap-2 rounded-full bg-white text-black px-6 py-3.5 font-semibold text-[13.5px] hover:bg-white/95 transition disabled:opacity-70 ring-glow"
               >
                 {loading ? (
                   <>
@@ -225,7 +270,7 @@ export default function LeadModal() {
                   </>
                 ) : (
                   <>
-                    Join Early Access
+                    Continue
                     <ArrowRight className="h-4 w-4" />
                   </>
                 )}
