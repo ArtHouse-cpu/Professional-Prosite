@@ -52,13 +52,13 @@ export default function Pricing() {
                 <Crown className="h-3.5 w-3.5" />
                 Lifetime Membership
               </div>
-              <div className="inline-flex items-center gap-1.5 glass rounded-full px-3 py-1.5 text-[11px] uppercase tracking-[0.2em] text-emerald-300">
+              <div className="hidden sm:inline-flex items-center gap-1.5 glass rounded-full px-3 py-1.5 text-[11px] uppercase tracking-[0.2em] text-emerald-300">
                 <Sparkles className="h-3.5 w-3.5" />
                 50% Launch Offer
               </div>
             </div>
 
-            <div className="relative flex items-end gap-4 flex-wrap">
+            <div className="relative flex items-end gap-4 flex-wrap mt-2 sm:mt-0">
               <div className="flex items-baseline gap-3 relative">
                 <span className="font-display text-[72px] sm:text-[96px] leading-none tracking-tight text-gradient-luxe relative overflow-hidden">
                   ₹899
@@ -71,7 +71,12 @@ export default function Pricing() {
                     className="absolute inset-y-0 -left-1/2 w-1/2 bg-gradient-to-r from-transparent via-white/35 to-transparent skew-x-12 pointer-events-none"
                   />
                 </span>
-                <span className="font-body text-white/40 line-through text-2xl">₹1,798</span>
+                <div className="flex flex-col items-center">
+                  <span className="sm:hidden text-[9px] uppercase tracking-[0.2em] text-emerald-300 bg-emerald-400/10 px-1.5 py-0.5 rounded mb-0.5 leading-none">
+                    50% OFF
+                  </span>
+                  <span className="font-body text-white/40 line-through text-xl sm:text-2xl">₹1,798</span>
+                </div>
               </div>
               <div className="text-[12.5px] text-white/55 font-body pb-2">
                 one-time · billed once · own it forever

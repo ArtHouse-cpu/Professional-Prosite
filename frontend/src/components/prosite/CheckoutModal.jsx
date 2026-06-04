@@ -768,7 +768,7 @@ export default function CheckoutModal({ open, onClose }) {
               <div className="pointer-events-none absolute -bottom-32 -left-32 h-72 w-72 rounded-full radial-purple" />
 
               {/* Header */}
-              <div className="relative flex items-center justify-between px-6 sm:px-8 py-5 border-b border-white/[0.06]">
+              <div className="relative flex items-center justify-between px-5 sm:px-6 py-4 border-b border-white/[0.06]">
                 <div className="flex items-center gap-2.5">
                  
                   <div>
@@ -789,14 +789,14 @@ export default function CheckoutModal({ open, onClose }) {
               {step === "review" ? (
                 <div className="relative grid grid-cols-1 md:grid-cols-5 gap-0 overflow-y-auto">
                   {/* Left — Summary */}
-                  <div className="md:col-span-3 p-6 sm:p-8 border-b md:border-b-0 md:border-r border-white/[0.06]">
+                  <div className="md:col-span-3 p-5 sm:p-6 border-b md:border-b-0 md:border-r border-white/[0.06]">
                     <div className="inline-flex items-center gap-1.5 glass rounded-full px-3 py-1 text-[10.5px] uppercase tracking-[0.2em] text-amber-200">
                       <Crown className="h-3 w-3" /> Lifetime Start Membership
                     </div>
                     
                     {/* Big Price Display from reference image */}
-                    <div className="mt-5 flex items-baseline gap-3 flex-wrap">
-                      <span className="font-display text-[56px] sm:text-[64px] leading-none tracking-tight text-gradient-luxe">
+                    <div className="mt-3 flex items-baseline gap-3 flex-wrap">
+                      <span className="font-display text-[48px] sm:text-[56px] leading-none tracking-tight text-gradient-luxe">
                         ₹{appliedCoupon ? Math.max(0, Math.round(1798 - saved)) : 1798}
                       </span>
                       {appliedCoupon ? (
@@ -814,20 +814,10 @@ export default function CheckoutModal({ open, onClose }) {
                     </div>
                     <div className="mt-1 text-[12.5px] text-white/55">One-time · Lifetime access · No subscriptions</div>
 
-                    <div className="mt-7 grid grid-cols-2 gap-x-4 gap-y-2.5">
-                      {included.map((f) => (
-                        <div key={f} className="flex items-center gap-2 text-[13px] text-white/85 font-body">
-                          <Check className="h-3.5 w-3.5 text-prosite-electric" strokeWidth={2.4} />
-                          {f}
-                        </div>
-                      ))}
-                    </div>
-
-
-                    {/* NFC Card Visual Selection from reference image */}
+                    {/* NFC Card Visual Selection */}
                     <div 
                       onClick={() => setNfc(!nfc)}
-                      className={`mt-7 p-5 rounded-3xl border transition-all duration-300 flex items-center justify-between gap-4 cursor-pointer relative overflow-hidden ${
+                      className={`mt-4 p-3.5 sm:p-4 rounded-2xl border transition-all duration-300 flex flex-col gap-3 cursor-pointer relative overflow-hidden ${
                         nfc 
                           ? "border-amber-500/60 bg-amber-500/[0.03] shadow-lg shadow-amber-500/[0.02]" 
                           : "border-white/[0.08] bg-white/[0.01] hover:border-white/20"
@@ -836,40 +826,43 @@ export default function CheckoutModal({ open, onClose }) {
                       {/* Ambient Glow behind image if selected */}
                       {nfc && <div className="absolute -left-10 top-0 bottom-0 w-32 bg-amber-500/5 rounded-full blur-xl pointer-events-none" />}
                       
-                      <div className="flex items-center gap-4 relative">
-                        <div className="relative h-20 w-32 shrink-0 rounded-xl overflow-hidden border border-white/10 bg-black/40 flex items-center justify-center shadow-lg transition-transform duration-300 hover:scale-105">
-                          <img src={NFC_IMG} alt="NFC Card Preview" className="h-full w-full object-cover" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                          <span className="absolute bottom-1.5 left-2.5 text-[8px] font-mono tracking-widest text-white/80 uppercase">Atives Pass</span>
+                      {/* Top row: Title and Checkbox */}
+                      <div className="flex items-center justify-between w-full relative z-10">
+                        <div className="text-[13px] font-medium text-white/80 flex items-center gap-1.5 font-display whitespace-nowrap">
+                          <Nfc className={`h-4 w-4 ${nfc ? "text-amber-400" : "text-white/60"}`} /> 
+                          Lifetime Gold Metal NFC Card
                         </div>
-                        <div className="text-left">
-                          <div className="text-[13px] font-bold text-white flex items-center gap-1.5 font-display">
-                            <Nfc className={`h-4 w-4 ${nfc ? "text-amber-400" : "text-white/60"}`} /> 
-                            Lifetime Gold Metal NFC Card
-                          </div>
-                          <p className="text-[10px] text-white/55 mt-1 leading-relaxed max-w-[200px] font-body">
-                            Tap to share your Prosite anywhere.
-                          </p>
-                          <div className="mt-2.5 flex items-baseline gap-2">
-                            <span className="line-through text-[10px] text-white/30 font-body">₹2,500</span>
-                            <span className="text-[12px] font-bold text-amber-400 font-display">₹999</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex items-center justify-center shrink-0">
-                        <div className={`h-6 w-6 rounded-full border flex items-center justify-center transition-all ${
+                        <div className={`h-5 w-5 rounded-full border flex items-center justify-center transition-all shrink-0 ${
                           nfc 
                             ? "bg-amber-400 border-amber-400 text-black shadow-lg shadow-amber-400/20" 
                             : "border-white/20 bg-black/20"
                         }`}>
-                          {nfc && <Check className="h-3.5 w-3.5" strokeWidth={3.5} />}
+                          {nfc && <Check className="h-3 w-3" strokeWidth={3.5} />}
+                        </div>
+                      </div>
+
+                      {/* Bottom row: Card image, description, pricing */}
+                      <div className="flex items-center gap-4 relative z-10">
+                        <div className="relative h-[60px] w-[96px] shrink-0 rounded-lg overflow-hidden border border-white/10 bg-black/40 flex items-center justify-center shadow-lg transition-transform duration-300 hover:scale-105">
+                          <img src={NFC_IMG} alt="NFC Card Preview" className="h-full w-full object-cover" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                        </div>
+                        
+                        <div className="flex flex-col justify-center h-full">
+                          <p className="text-[11px] text-white/55 leading-snug max-w-[180px] font-body">
+                            Tap to share your Prosite anywhere.
+                          </p>
+                          <div className="mt-1 flex items-center gap-2">
+                            <span className="line-through text-[11px] text-white/30 font-body">₹2,500</span>
+                            <span className="text-[13px] font-semibold text-amber-400 font-display">₹999</span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   {/* Right — Total + form */}
-                  <div className="md:col-span-2 p-6 sm:p-8 bg-black/30">
+                  <div className="md:col-span-2 p-5 sm:p-6 bg-black/30">
                     {/* Order Summary styled from reference image */}
                     <div className="space-y-3.5 text-[13px] text-white/80 font-body">
                       <div className="text-[10px] font-bold uppercase tracking-wider text-white/40 mb-1">Order Summary</div>
@@ -996,7 +989,7 @@ export default function CheckoutModal({ open, onClose }) {
                         type="submit"
                         data-testid="checkout-pay-btn"
                         disabled={loading}
-                        className="w-full mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-white text-black px-6 py-3.5 font-semibold text-[14px] hover:bg-white/95 transition disabled:opacity-70 ring-glow"
+                        className="w-full mt-4 sm:mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-white text-black px-6 py-3.5 font-semibold text-[14px] hover:bg-white/95 transition disabled:opacity-70 ring-glow"
                       >
                         {loading ? (
                           <>

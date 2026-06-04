@@ -1,16 +1,37 @@
 import React, { useState } from "react";
 import { Sparkles, Menu, X } from "lucide-react";
 import { useProsite } from "./PrositeProvider";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 
 export default function Navbar() {
-  const { openCheckout } = useProsite();
+  const { openCheckout, isCheckoutOpen } = useProsite();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious();
+    if (latest > previous && latest > 150) {
+      setHidden(true);
+      setIsMenuOpen(false); // Close menu if open when scrolling down
+    } else {
+      setHidden(false);
+    }
+  });
+
+  if (isCheckoutOpen) return null;
 
   return (
-    <nav
+    <motion.nav
+      style={{ x: "-50%" }}
+      variants={{
+        visible: { y: 0 },
+        hidden: { y: "-150%" }
+      }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
       data-testid="prosite-navbar"
-      className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[min(1200px,92vw)]"
+      className="fixed top-4 left-1/2 z-50 w-[min(1200px,92vw)]"
     >
       <div className="glass-strong rounded-full px-4 sm:px-6 py-3 flex items-center justify-between">
         <a
@@ -27,7 +48,7 @@ export default function Navbar() {
             <div className="absolute inset-0 rounded-lg blur-md bg-prosite-royal/40 -z-10" />
           </div>
 
-          <div className="flex flex-col items-center gap-0">
+          <div className="flex flex-col items-start text-left gap-0">
             <span className="font-display text-lg tracking-tight leading-none">
               Prosite
             </span>
@@ -102,6 +123,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 }

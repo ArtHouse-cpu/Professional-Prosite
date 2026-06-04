@@ -49,7 +49,7 @@ export default function Monetization({ dashboardImg }) {
               tools. No code.
             </p>
 
-            <div className="mt-8 grid grid-cols-2 gap-3 max-w-md">
+            <div className="mt-6 sm:mt-8 grid grid-cols-2 gap-2 sm:gap-3 max-w-md">
               {[
                 { icon: ShoppingBag, label: "Sell Products" },
                 { icon: Ticket, label: "List Events" },
@@ -62,10 +62,10 @@ export default function Monetization({ dashboardImg }) {
               ].map(({ icon: Icon, label }) => (
                 <div
                   key={label}
-                  className="glass rounded-xl px-3 py-2.5 flex items-center gap-2.5"
+                  className="glass rounded-xl px-2 py-2 sm:px-3 sm:py-2.5 flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2.5 w-full h-[42px] sm:h-[48px]"
                 >
-                  <Icon className="h-4 w-4 text-prosite-electric" />
-                  <span className="text-[13px] text-white font-body">
+                  <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-prosite-electric shrink-0" />
+                  <span className="text-[10.5px] sm:text-[13px] text-white font-body whitespace-nowrap overflow-hidden text-ellipsis">
                     {label}
                   </span>
                 </div>
@@ -140,12 +140,12 @@ export default function Monetization({ dashboardImg }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.55 }}
-                className="absolute bottom-5 left-5 glass-strong rounded-2xl p-4 min-w-[230px]"
+                className="absolute bottom-1 sm:bottom-5 left-1 sm:left-5 glass-strong rounded-xl sm:rounded-2xl p-3 sm:p-4 min-w-[200px] sm:min-w-[230px] scale-[0.75] sm:scale-100 origin-bottom-left z-10"
               >
-                <div className="text-[10.5px] uppercase tracking-[0.18em] text-white/55 mb-3">
+                <div className="text-[9.5px] sm:text-[10.5px] uppercase tracking-[0.18em] text-white/55 mb-2 sm:mb-3">
                   Today
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1.5 sm:space-y-2">
                   <Row
                     title="✨ Discoveries"
                     right="89"
@@ -199,11 +199,11 @@ export default function Monetization({ dashboardImg }) {
 
 const Row = ({ title, right, sub }) => (
   <div className="flex items-center justify-between gap-3">
-    <div>
-      <div className="text-[12.5px] text-white font-medium">{title}</div>
-      <div className="text-[10.5px] text-white/45">{sub}</div>
+    <div className="overflow-hidden pr-2">
+      <div className="text-[11px] sm:text-[12.5px] text-white font-medium whitespace-nowrap">{title}</div>
+      <div className="text-[9px] sm:text-[10.5px] text-white/45 truncate">{sub}</div>
     </div>
-    <div className="text-[12.5px] font-display text-emerald-300/95">
+    <div className="text-[11px] sm:text-[12.5px] font-display text-emerald-300/95 shrink-0">
       {right}
     </div>
   </div>

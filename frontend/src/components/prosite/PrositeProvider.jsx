@@ -20,8 +20,10 @@ export default function PrositeProvider({ children }) {
   return (
     <PrositeCtx.Provider
       value={{
+        isCheckoutOpen: checkoutOpen,
         openCheckout: () => setCheckoutOpen(true),
         closeCheckout: () => setCheckoutOpen(false),
+        isDemoOpen: demoOpen,
         openDemo: () => setDemoOpen(true),
         closeDemo: () => setDemoOpen(false),
       }}

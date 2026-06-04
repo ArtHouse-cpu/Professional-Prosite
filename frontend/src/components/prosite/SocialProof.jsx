@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Star, TrendingUp, Inbox, ShoppingBag, Users, UserPlus,Globe } from "lucide-react";
+import { Star, TrendingUp, Inbox, ShoppingBag, Users, UserPlus, Globe, Volume2, VolumeX } from "lucide-react";
 import CountUp from "./CountUp";
 
 const testimonials = [
@@ -10,6 +10,7 @@ const testimonials = [
     name: "Mira Patel",
     role: "Editorial Photographer · Mumbai",
     img: "https://images.unsplash.com/photo-1675726205553-4e348f24da2c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHByb2Zlc3Npb25hbCUyMHBvcnRyYWl0JTIwZGFyayUyMG1vb2R5fGVufDB8fHx8MTc3OTk2NDQ1OHww&ixlib=rb-4.1.0&q=85",
+    video: "https://res.cloudinary.com/dzwto9zbu/video/upload/v1780572271/Artist___Sanya_joined_Atives_Created_her_Unified_Portfolio_Earned_Big._hgbdz6.mp4", // Replace with real vertical video
   },
   {
     quote:
@@ -57,6 +58,67 @@ const metrics = [
   },
 ];
 
+function VideoCard({ t }) {
+  const [isMuted, setIsMuted] = React.useState(true);
+  const videoRef = React.useRef(null);
+
+  const toggleMute = (e) => {
+    e.preventDefault();
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
+  return (
+    <>
+      <video
+        ref={videoRef}
+        src={t.video}
+        autoPlay
+        muted={isMuted}
+        loop
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10 pointer-events-none" />
+      
+      {/* Mute toggle button */}
+      <button
+        onClick={toggleMute}
+        aria-label="Toggle Volume"
+        className="absolute bottom-6 right-6 z-20 h-10 w-10 rounded-full glass bg-black/40 border border-white/10 flex items-center justify-center hover:bg-white/20 transition-all active:scale-95"
+      >
+        {isMuted ? (
+          <VolumeX className="h-5 w-5 text-white" />
+        ) : (
+          <Volume2 className="h-5 w-5 text-white" />
+        )}
+      </button>
+
+      <div className="relative z-10 p-6 sm:p-8 flex flex-col h-full justify-between pointer-events-none">
+        <div className="flex gap-0.5">
+          {[0, 1, 2, 3, 4].map((s) => (
+            <Star key={s} className="h-4 w-4 fill-amber-400 text-amber-400 drop-shadow-md" />
+          ))}
+        </div>
+        <div>
+          <blockquote className="font-editorial italic text-white text-[18px] sm:text-[24px] leading-[1.3] drop-shadow-md mb-4 sm:mb-6">
+            “{t.quote}”
+          </blockquote>
+          <figcaption className="flex items-center gap-3 pr-12">
+            <img src={t.img} alt={t.name} className="h-10 w-10 rounded-full object-cover ring-2 ring-white/20" loading="lazy" />
+            <div>
+              <div className="text-[14px] text-white font-semibold drop-shadow">{t.name}</div>
+              <div className="text-[12px] text-white/70 drop-shadow">{t.role}</div>
+            </div>
+          </figcaption>
+        </div>
+      </div>
+    </>
+  );
+}
+
 export default function SocialProof() {
   return (
     <section data-testid="social-proof-section" className="relative py-28 sm:py-36">
@@ -87,7 +149,7 @@ export default function SocialProof() {
         </div>
 
         {/* Testimonials */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="mt-12 flex sm:grid sm:grid-cols-2 gap-4 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8 -mx-5 px-[10vw] sm:mx-0 sm:px-0">
           {testimonials.map((t, i) => (
             <motion.figure
               key={t.name}
@@ -95,23 +157,31 @@ export default function SocialProof() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.06 }}
-              className="rounded-3xl glass p-7 sm:p-8 relative"
+              className={`snap-center shrink-0 w-[80vw] max-w-[320px] sm:w-auto sm:max-w-none rounded-3xl glass relative overflow-hidden flex flex-col ${
+                t.video ? "h-[480px] sm:h-[600px] p-0" : "p-6 sm:p-8 justify-between h-[480px] sm:h-auto"
+              }`}
             >
-              <div className="flex gap-0.5 mb-5">
-                {[0, 1, 2, 3, 4].map((s) => (
-                  <Star key={s} className="h-3.5 w-3.5 fill-amber-300 text-amber-300" />
-                ))}
-              </div>
-              <blockquote className="font-editorial italic text-white text-[20px] sm:text-[22px] leading-[1.35]">
-                “{t.quote}”
-              </blockquote>
-              <figcaption className="mt-6 flex items-center gap-3">
-                <img src={t.img} alt={t.name} className="h-10 w-10 rounded-full object-cover ring-1 ring-white/15" loading="lazy" />
-                <div>
-                  <div className="text-[13.5px] text-white font-semibold">{t.name}</div>
-                  <div className="text-[11.5px] text-white/45">{t.role}</div>
-                </div>
-              </figcaption>
+              {t.video ? (
+                <VideoCard t={t} />
+              ) : (
+                <>
+                  <div className="flex gap-0.5 mb-5">
+                    {[0, 1, 2, 3, 4].map((s) => (
+                      <Star key={s} className="h-3.5 w-3.5 fill-amber-300 text-amber-300" />
+                    ))}
+                  </div>
+                  <blockquote className="font-editorial italic text-white text-[20px] sm:text-[22px] leading-[1.35] mb-6">
+                    “{t.quote}”
+                  </blockquote>
+                  <figcaption className="mt-auto flex items-center gap-3">
+                    <img src={t.img} alt={t.name} className="h-10 w-10 rounded-full object-cover ring-1 ring-white/15" loading="lazy" />
+                    <div>
+                      <div className="text-[13.5px] text-white font-semibold">{t.name}</div>
+                      <div className="text-[11.5px] text-white/45">{t.role}</div>
+                    </div>
+                  </figcaption>
+                </>
+              )}
             </motion.figure>
           ))}
         </div>
