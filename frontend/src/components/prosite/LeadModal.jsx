@@ -144,22 +144,25 @@ export default function LeadModal() {
             <div className="pointer-events-none absolute -bottom-24 -right-24 h-48 w-48 rounded-full radial-blue opacity-40 blur-2xl" />
 
             {/* Title / Header */}
-<div className="flex items-center justify-between mb-6">
-  <span className="font-display text-2xl font-semibold tracking-tight text-white" onClick={handleClose}>
-    Get Invited
-  </span>
+            <div className="flex items-center justify-between mb-6">
+              <span
+                className="font-display text-2xl font-semibold tracking-tight gap-2 text-white"
+                onClick={handleClose}
+              >
+                Get &nbsp;Invited
+              </span>
 
-  <div className="h-8 w-8  rounded-2xl bg-white flex items-center justify-center ring-glow">
-    <div className="relative h-8 w-8 rounded-lg bg-white flex items-center justify-center">
-      <img
-        src="https://res.cloudinary.com/dzwto9zbu/image/upload/v1779959585/Atives_Logo_1_mpnssp.png"
-        alt="Atives Logo"
-        className="h-6 w-6 object-contain"
-      />
-      <div className="absolute inset-0 rounded-lg blur-md bg-prosite-royal/40 -z-10" />
-    </div>
-  </div>
-</div>
+              <div className="h-8 w-8  rounded-2xl bg-white flex items-center justify-center ring-glow">
+                <div className="relative h-8 w-8 rounded-lg bg-white flex items-center justify-center">
+                  <img
+                    src="https://res.cloudinary.com/dzwto9zbu/image/upload/v1779959585/Atives_Logo_1_mpnssp.png"
+                    alt="Atives Logo"
+                    className="h-6 w-6 object-contain"
+                  />
+                  <div className="absolute inset-0 rounded-lg blur-md bg-prosite-royal/40 -z-10" />
+                </div>
+              </div>
+            </div>
 
             <form
               onSubmit={handleSubmit}
