@@ -2,47 +2,51 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Star, TrendingUp, Inbox, ShoppingBag, Users, UserPlus, Globe, Volume2, VolumeX } from "lucide-react";
 import CountUp from "./CountUp";
-
 const testimonials = [
   {
     quote:
       "I stopped sending 6 different links. Brands started replying within an hour. My Prosite did 80% of the pitching.",
-    name: "Mira Patel",
-    role: "Editorial Photographer · Mumbai",
+    name: "Sanya",
+    role: "Artist",
     img: "https://images.unsplash.com/photo-1675726205553-4e348f24da2c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHByb2Zlc3Npb25hbCUyMHBvcnRyYWl0JTIwZGFyayUyMG1vb2R5fGVufDB8fHx8MTc3OTk2NDQ1OHww&ixlib=rb-4.1.0&q=85",
-    video: "https://res.cloudinary.com/dzwto9zbu/video/upload/v1780572271/Artist___Sanya_joined_Atives_Created_her_Unified_Portfolio_Earned_Big._hgbdz6.mp4", // Replace with real vertical video
+    video:
+      "https://res.cloudinary.com/dzwto9zbu/video/upload/v1780572271/Artist___Sanya_joined_Atives_Created_her_Unified_Portfolio_Earned_Big._hgbdz6.mp4",
   },
   {
     quote:
       "It feels like an app, not a portfolio. Clients keep asking who built it. The NFC card is my favorite trick at events.",
-    name: "Arjun Verma",
-    role: "Motion Designer · Bengaluru",
+    name: "Shiuli",
+    role: "Mixed Media Artist",
     img: "https://images.unsplash.com/photo-1762291629616-3e2c044c79a0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwzfHxjcmVhdGl2ZSUyMHByb2Zlc3Npb25hbCUyMHBvcnRyYWl0JTIwZGFyayUyMG1vb2R5fGVufDB8fHx8MTc3OTk2NDQ1OHww&ixlib=rb-4.1.0&q=85",
-     video: "https://res.cloudinary.com/dzwto9zbu/video/upload/v1780587971/Soulful_Mixed_Media_Art_by_Shiuli___Lifetime_PRO_Member_on_Atives___Join_the_Creative_Revolution_qvdzze.mp4",
+    video:
+      "https://res.cloudinary.com/dzwto9zbu/video/upload/v1780587971/Soulful_Mixed_Media_Art_by_Shiuli___Lifetime_PRO_Member_on_Atives___Join_the_Creative_Revolution_qvdzze.mp4",
   },
   {
     quote:
       "I sold 47 course seats in the first week of switching. The checkout, the reviews, the trust — it just compounds.",
-    name: "Sneha Iyer",
-    role: "Illustrator & Educator · Pune",
+    name: "Lavanya P.",
+    role: "Visual Artist",
     img: "https://images.pexels.com/photos/8089650/pexels-photo-8089650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-     video: "https://res.cloudinary.com/dzwto9zbu/video/upload/v1780587989/lavanya_P._Artist_1_oryczo.mp4",
+    video:
+      "https://res.cloudinary.com/dzwto9zbu/video/upload/v1780587989/lavanya_P._Artist_1_oryczo.mp4",
   },
   {
     quote:
       "Lifetime pricing was the easiest creative purchase I've made. It pays for itself with one client inquiry.",
-    name: "Rohan D'Souza",
-    role: "Filmmaker · Goa",
+    name: "Bahaar",
+    role: "Creative Entrepreneur",
     img: "https://images.unsplash.com/photo-1576280314550-773c50583407?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwzfHxmaWxtJTIwZGlyZWN0b3IlMjBjaW5lbWF0aWMlMjBsaWdodGluZ3xlbnwwfHx8fDE3Nzk5NjQ0NTh8MA&ixlib=rb-4.1.0&q=85",
-     video: "https://res.cloudinary.com/dzwto9zbu/video/upload/v1780588023/Bahaar_Testimonial_8k_1_jmj6p8.mp4",
+    video:
+      "https://res.cloudinary.com/dzwto9zbu/video/upload/v1780588023/Bahaar_Testimonial_8k_1_jmj6p8.mp4",
   },
   {
     quote:
       "Lifetime pricing was the easiest creative purchase I've made. It pays for itself with one client inquiry.",
-    name: "Rohan D'Souza",
-    role: "Filmmaker · Goa",
+    name: "Preeti",
+    role: "Charcoal Artist",
     img: "https://images.unsplash.com/photo-1576280314550-773c50583407?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwzfHxmaWxtJTIwZGlyZWN0b3IlMjBjaW5lbWF0aWMlMjBsaWdodGluZ3xlbnwwfHx8fDE3Nzk5NjQ0NTh8MA&ixlib=rb-4.1.0&q=85",
-     video: "https://res.cloudinary.com/dzwto9zbu/video/upload/v1780587936/Self-Taught_Charcoal_Artist_Featured_in_India_Today___Meet_Preeti___Lifetime_PRO_at_Atives_calvqz.mp4",
+    video:
+      "https://res.cloudinary.com/dzwto9zbu/video/upload/v1780587936/Self-Taught_Charcoal_Artist_Featured_in_India_Today___Meet_Preeti___Lifetime_PRO_at_Atives_calvqz.mp4",
   },
 ];
 
