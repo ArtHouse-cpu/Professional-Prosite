@@ -127,8 +127,8 @@ export default function CareerTrajectory() {
         {/* Trajectory chart */}
         <div ref={ref} className="mt-14 relative rounded-3xl glass p-5 sm:p-8 overflow-hidden">
           <div className="flex items-center justify-between mb-5 text-[8.5px] sm:text-[11px] uppercase tracking-wider sm:tracking-[0.2em] text-white/45 font-body whitespace-nowrap">
-            <span>Career growth · 2 years</span>
-            <span>Same talent · different presentation</span>
+            <span>Career growth</span>
+            <span>Same talent</span>
           </div>
 
           <div className="relative h-[230px] sm:h-[260px] w-full">

@@ -28,7 +28,7 @@ export default function CreatorEconomy() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-12 gap-4">
+        <div className="mt-10 sm:mt-14 grid grid-cols-2 md:grid-cols-12 gap-3 sm:gap-4">
           {pillars.map(({ icon: Icon, title, sub }, i) => (
             <motion.div
               key={title}
@@ -36,16 +36,16 @@ export default function CreatorEconomy() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.06 }}
-              className={`relative rounded-3xl glass p-6 sm:p-7 overflow-hidden ${
+              className={`relative rounded-2xl md:rounded-3xl glass p-4 md:p-7 overflow-hidden col-span-1 ${
                 i === 0 ? "md:col-span-5" : i === 1 ? "md:col-span-7" : i === 2 ? "md:col-span-4" : i === 3 ? "md:col-span-4" : "md:col-span-4"
               }`}
             >
-              <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full radial-blue opacity-60" />
-              <div className="relative h-10 w-10 rounded-xl glass-strong flex items-center justify-center mb-5">
-                <Icon className="h-4.5 w-4.5 text-prosite-electric" strokeWidth={1.6} />
+              <div className="absolute -top-16 -right-16 h-32 w-32 md:h-48 md:w-48 rounded-full radial-blue opacity-60" />
+              <div className="relative h-8 w-8 md:h-10 md:w-10 rounded-[10px] md:rounded-xl glass-strong flex items-center justify-center mb-3 md:mb-5">
+                <Icon className="h-4 w-4 md:h-[18px] md:w-[18px] text-prosite-electric shrink-0" strokeWidth={1.6} />
               </div>
-              <div className="relative font-display text-[22px] leading-tight mb-2">{title}</div>
-              <div className="relative text-[13.5px] text-white/55 font-body leading-relaxed">{sub}</div>
+              <div className="relative font-display text-[15px] md:text-[22px] leading-tight mb-1.5 md:mb-2 pr-2">{title}</div>
+              <div className="relative text-[11px] md:text-[13.5px] text-white/55 font-body leading-relaxed">{sub}</div>
             </motion.div>
           ))}
         </div>

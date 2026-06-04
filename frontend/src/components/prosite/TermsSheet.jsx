@@ -962,7 +962,7 @@ const termsContent = {
         title: "Membership Types",
         items: [
           {
-            text: "Lifetime Membership: One-time payment granting long-term or permanent access to benefits listed at the time of purchase.",
+            text: "Lifetime Start Membership: One-time payment granting long-term or permanent access to benefits listed at the time of purchase.",
           },
           {
             text: "Recurring Membership: Subscription-based access (monthly, quarterly, annually, or as specified). Auto-renewals apply unless cancelled before the billing date.",
@@ -1098,7 +1098,7 @@ const termsContent = {
             text: "Recurring plans auto-renew unless cancelled before the renewal date.",
           },
           {
-            text: "Lifetime memberships are non-recurring but may have optional upgrades.",
+            text: "Lifetime Start Memberships are non-recurring but may have optional upgrades.",
           },
           {
             text: "Failure to pay will result in suspension of membership benefits.",

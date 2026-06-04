@@ -145,7 +145,7 @@ export default function LeadModal() {
 
             {/* Title / Header */}
 <div className="flex items-center justify-between mb-6">
-  <span className="font-display text-2xl font-semibold tracking-tight text-white">
+  <span className="font-display text-2xl font-semibold tracking-tight text-white" onClick={handleClose}>
     Get Invited
   </span>
 

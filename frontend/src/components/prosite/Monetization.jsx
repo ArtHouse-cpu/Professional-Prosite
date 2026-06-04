@@ -59,10 +59,10 @@ export default function Monetization({ dashboardImg }) {
                 { icon: FolderKanban, label: "Show Projects" },
                 { icon: Target, label: "Generate Leads" },
                 { icon: Briefcase, label: "Get Hired" },
-              ].map(({ icon: Icon, label }) => (
+              ].map(({ icon: Icon, label }, index) => (
                 <div
                   key={label}
-                  className="glass rounded-xl px-2 py-2 sm:px-3 sm:py-2.5 flex items-center justify-center sm:justify-start gap-1.5 sm:gap-2.5 w-full h-[42px] sm:h-[48px]"
+                  className={`glass rounded-xl px-2 py-2 sm:px-3 sm:py-2.5 items-center justify-center sm:justify-start gap-1.5 sm:gap-2.5 w-full h-[42px] sm:h-[48px] ${index >= 4 ? 'hidden sm:flex' : 'flex'}`}
                 >
                   <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-prosite-electric shrink-0" />
                   <span className="text-[10.5px] sm:text-[13px] text-white font-body whitespace-nowrap overflow-hidden text-ellipsis">
@@ -87,7 +87,7 @@ export default function Monetization({ dashboardImg }) {
               <img
                 src={dashboardImg}
                 alt="Prosite dashboard"
-                className="w-full h-auto object-cover"
+                className="w-full h-[360px] sm:h-auto object-cover object-left sm:object-center"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
@@ -98,7 +98,7 @@ export default function Monetization({ dashboardImg }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.4 }}
-                className="absolute top-5 right-5 glass-strong rounded-2xl p-4 min-w-[240px]"
+                className="absolute top-1 right-0 sm:top-5 sm:right-5 glass-strong rounded-2xl p-2 sm:p-4 min-w-[200px] sm:min-w-[240px] scale-[0.65] sm:scale-100 origin-top-right"
               >
                 <div className="flex items-center justify-between mb-2">
                   <div className="text-[10.5px] uppercase tracking-[0.18em] text-white/55">
@@ -140,7 +140,7 @@ export default function Monetization({ dashboardImg }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.55 }}
-                className="absolute bottom-1 sm:bottom-5 left-1 sm:left-5 glass-strong rounded-xl sm:rounded-2xl p-3 sm:p-4 min-w-[200px] sm:min-w-[230px] scale-[0.75] sm:scale-100 origin-bottom-left z-10"
+                className="absolute bottom-1 left-1 sm:bottom-5 sm:left-5 glass-strong rounded-2xl p-3 sm:p-4 min-w-[200px] sm:min-w-[230px] scale-[0.65] sm:scale-100 origin-bottom-left z-10"
               >
                 <div className="text-[9.5px] sm:text-[10.5px] uppercase tracking-[0.18em] text-white/55 mb-2 sm:mb-3">
                   Today

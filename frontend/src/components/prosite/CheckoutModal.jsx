@@ -761,7 +761,7 @@ export default function CheckoutModal({ open, onClose }) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 30, scale: 0.98 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full sm:max-w-[920px] mx-auto rounded-t-3xl sm:rounded-3xl glass-strong overflow-hidden max-h-[92vh] flex flex-col"
+              className="relative w-full sm:max-w-[920px] mx-auto rounded-t-3xl sm:rounded-3xl glass-strong overflow-hidden max-h-[88dvh] sm:max-h-[92vh] flex flex-col mb-0 sm:mb-auto"
             >
               {/* Glow */}
               <div className="pointer-events-none absolute -top-32 -right-32 h-72 w-72 rounded-full radial-blue" />
@@ -862,7 +862,7 @@ export default function CheckoutModal({ open, onClose }) {
                   </div>
 
                   {/* Right — Total + form */}
-                  <div className="md:col-span-2 p-5 sm:p-6 bg-black/30">
+                  <div className="md:col-span-2 p-5 pb-10 sm:p-6 bg-black/30">
                     {/* Order Summary styled from reference image */}
                     <div className="space-y-3.5 text-[13px] text-white/80 font-body">
                       <div className="text-[10px] font-bold uppercase tracking-wider text-white/40 mb-1">Order Summary</div>

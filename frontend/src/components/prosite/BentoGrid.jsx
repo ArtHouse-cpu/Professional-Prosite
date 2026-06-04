@@ -58,9 +58,9 @@ export default function BentoGrid() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div className="flex flex-col lg:grid lg:grid-cols-6 gap-3">
           {/* Featured big card */}
-          <div className="col-span-2 sm:col-span-3 lg:col-span-3 row-span-2 rounded-3xl glass p-7 sm:p-8 relative overflow-hidden ring-glow min-h-[300px]">
+          <div className="lg:col-span-3 lg:row-span-2 rounded-3xl glass p-7 sm:p-8 relative overflow-hidden ring-glow min-h-[300px]">
             <div className="absolute -top-20 -right-20 h-72 w-72 rounded-full radial-blue" />
             <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full radial-purple" />
             <div className="relative h-full flex flex-col justify-between">
@@ -84,25 +84,90 @@ export default function BentoGrid() {
             </div>
           </div>
 
-          {features.map(({ icon: Icon, title }, i) => (
-            <motion.div
-              key={title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.025 }}
-              whileHover={{ y: -4 }}
-              className="group relative rounded-2xl glass p-4 min-h-[120px] flex flex-col justify-between hover:bg-white/[0.05] transition-colors overflow-hidden"
-            >
-              <div className="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                   style={{ background: "radial-gradient(120px circle at 50% 0%, rgba(59,130,246,0.25), transparent 70%)" }} />
-              <div className="relative h-9 w-9 rounded-xl bg-gradient-to-br from-prosite-royal/25 to-prosite-purple/25 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
-                <Icon className="h-4 w-4 text-white" strokeWidth={1.6} />
-              </div>
-              <div className="relative text-[13px] font-medium text-white/85 mt-3 leading-tight transition-colors group-hover:text-white">{title}</div>
-              <span className="absolute top-3 right-3 h-1.5 w-1.5 rounded-full bg-prosite-electric opacity-0 group-hover:opacity-100 transition-opacity pulse-dot" />
-            </motion.div>
-          ))}
+          {/* Mobile Auto-Scrolling Rows (Visible only < lg) */}
+          <div className="lg:hidden relative overflow-hidden -mx-5 sm:-mx-8 mt-2 pb-6">
+            <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-12 bg-gradient-to-r from-[#05050A] to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-12 bg-gradient-to-l from-[#05050A] to-transparent z-10 pointer-events-none" />
+
+            <div className="flex flex-col gap-3">
+              {/* Upper row: move left */}
+              <motion.div 
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{ repeat: Infinity, ease: "linear", duration: 35 }}
+                className="flex gap-3 w-max"
+              >
+                {[...features.slice(0, 9), ...features.slice(0, 9)].map(({ icon: Icon, title }, i) => (
+                  <motion.div
+                    key={`top-${i}`}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: (i % 9) * 0.05 }}
+                    whileHover={{ y: -4 }}
+                    className="w-[144px] sm:w-[160px] shrink-0 group relative rounded-2xl glass p-4 min-h-[120px] flex flex-col justify-between hover:bg-white/[0.05] transition-colors overflow-hidden"
+                  >
+                    <div className="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                         style={{ background: "radial-gradient(120px circle at 50% 0%, rgba(59,130,246,0.25), transparent 70%)" }} />
+                    <div className="relative h-9 w-9 rounded-xl bg-gradient-to-br from-prosite-royal/25 to-prosite-purple/25 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                      <Icon className="h-4 w-4 text-white" strokeWidth={1.6} />
+                    </div>
+                    <div className="relative text-[13px] font-medium text-white/85 mt-3 leading-tight transition-colors group-hover:text-white">{title}</div>
+                    <span className="absolute top-3 right-3 h-1.5 w-1.5 rounded-full bg-prosite-electric opacity-0 group-hover:opacity-100 transition-opacity pulse-dot" />
+                  </motion.div>
+                ))}
+              </motion.div>
+              
+              {/* Lower row: move right */}
+              <motion.div 
+                animate={{ x: ["-50%", "0%"] }}
+                transition={{ repeat: Infinity, ease: "linear", duration: 35 }}
+                className="flex gap-3 w-max"
+              >
+                {[...features.slice(9, 18), ...features.slice(9, 18)].map(({ icon: Icon, title }, i) => (
+                  <motion.div
+                    key={`bottom-${i}`}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: (i % 9) * 0.05 }}
+                    whileHover={{ y: -4 }}
+                    className="w-[144px] sm:w-[160px] shrink-0 group relative rounded-2xl glass p-4 min-h-[120px] flex flex-col justify-between hover:bg-white/[0.05] transition-colors overflow-hidden"
+                  >
+                    <div className="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                         style={{ background: "radial-gradient(120px circle at 50% 0%, rgba(59,130,246,0.25), transparent 70%)" }} />
+                    <div className="relative h-9 w-9 rounded-xl bg-gradient-to-br from-prosite-royal/25 to-prosite-purple/25 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                      <Icon className="h-4 w-4 text-white" strokeWidth={1.6} />
+                    </div>
+                    <div className="relative text-[13px] font-medium text-white/85 mt-3 leading-tight transition-colors group-hover:text-white">{title}</div>
+                    <span className="absolute top-3 right-3 h-1.5 w-1.5 rounded-full bg-prosite-electric opacity-0 group-hover:opacity-100 transition-opacity pulse-dot" />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Desktop Bento Grid (Visible only lg+) */}
+          <div className="hidden lg:contents">
+            {features.map(({ icon: Icon, title }, i) => (
+              <motion.div
+                key={title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.025 }}
+                whileHover={{ y: -4 }}
+                className="lg:w-auto lg:col-span-1 shrink-0 group relative rounded-2xl glass p-4 min-h-[120px] flex flex-col justify-between hover:bg-white/[0.05] transition-colors overflow-hidden"
+              >
+                <div className="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                     style={{ background: "radial-gradient(120px circle at 50% 0%, rgba(59,130,246,0.25), transparent 70%)" }} />
+                <div className="relative h-9 w-9 rounded-xl bg-gradient-to-br from-prosite-royal/25 to-prosite-purple/25 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                  <Icon className="h-4 w-4 text-white" strokeWidth={1.6} />
+                </div>
+                <div className="relative text-[13px] font-medium text-white/85 mt-3 leading-tight transition-colors group-hover:text-white">{title}</div>
+                <span className="absolute top-3 right-3 h-1.5 w-1.5 rounded-full bg-prosite-electric opacity-0 group-hover:opacity-100 transition-opacity pulse-dot" />
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

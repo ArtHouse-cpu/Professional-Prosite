@@ -47,8 +47,8 @@ export default function Landing() {
         <BentoGrid />
         <SocialProof />
         <Fomo />
-        <NFCSection nfcImg={IMG.nfc} />
         <Pricing />
+         <NFCSection nfcImg={IMG.nfc} />
         <FAQ />
         <FinalCTA />
         <Footer />

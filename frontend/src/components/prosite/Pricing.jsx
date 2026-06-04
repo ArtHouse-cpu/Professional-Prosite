@@ -50,7 +50,7 @@ export default function Pricing() {
             <div className="relative flex items-center justify-between mb-6">
               <div className="inline-flex items-center gap-1.5 glass rounded-full px-3 py-1.5 text-[11px] uppercase tracking-[0.2em] text-amber-200">
                 <Crown className="h-3.5 w-3.5" />
-                Lifetime Membership
+                Lifetime Start Membership
               </div>
               <div className="hidden sm:inline-flex items-center gap-1.5 glass rounded-full px-3 py-1.5 text-[11px] uppercase tracking-[0.2em] text-emerald-300">
                 <Sparkles className="h-3.5 w-3.5" />
@@ -83,11 +83,11 @@ export default function Pricing() {
               </div>
             </div>
 
-            <div className="relative mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
+            <div className="relative mt-6 sm:mt-8 grid grid-cols-2 gap-x-2 sm:gap-x-6 gap-y-3 sm:gap-y-2.5">
               {features.map((f) => (
-                <div key={f} className="flex items-center gap-2.5 text-[13.5px] text-white/85 font-body">
-                  <div className="h-5 w-5 rounded-full bg-prosite-royal/20 flex items-center justify-center">
-                    <Check className="h-3 w-3 text-prosite-electric" strokeWidth={2.5} />
+                <div key={f} className="flex items-center gap-1.5 sm:gap-2.5 text-[10.5px] sm:text-[13.5px] text-white/85 font-body leading-tight">
+                  <div className="shrink-0 h-4 w-4 sm:h-5 sm:w-5 rounded-full bg-prosite-royal/20 flex items-center justify-center">
+                    <Check className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-prosite-electric" strokeWidth={2.5} />
                   </div>
                   {f}
                 </div>

@@ -37,32 +37,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links */}
-          <div className="flex items-center gap-5 text-[13px] text-white/60 font-body">
-            <button
-              onClick={() => setIsTermsOpen(true)}
-              className="hover:text-white transition cursor-pointer bg-transparent border-none p-0"
-            >
-              Terms
-            </button>
-            <a
-              href="https://www.1atives.com/help"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition"
-            >
-              Help
-            </a>
-          </div>
-        </div>
-
-        {/* Bottom Row */}
-        <div className="flex justify-between items-end sm:items-center">
-          {/* Copyright */}
-          <div className="text-[11.5px] text-white/45 font-body max-w-[140px] sm:max-w-none leading-relaxed">
-            © {new Date().getFullYear()} ATIVES WORLD PVT LTD.
-          </div>
-
           {/* Socials */}
           <div className="flex items-center gap-3">
             <a
@@ -91,6 +65,32 @@ export default function Footer() {
               aria-label="YouTube"
             >
               <Youtube size={16} className="text-white/60 group-hover:text-prosite-neon transition-colors" />
+            </a>
+          </div>
+        </div>
+
+        {/* Bottom Row */}
+        <div className="flex justify-between items-end sm:items-center">
+          {/* Copyright */}
+          <div className="text-[11.5px] text-white/45 font-body sm:max-w-none leading-relaxed whitespace-nowrap">
+            © {new Date().getFullYear()} ATIVES WORLD PVT LTD.
+          </div>
+
+          {/* Links */}
+          <div className="flex items-center gap-5 text-[13px] text-white/60 font-body">
+            <button
+              onClick={() => setIsTermsOpen(true)}
+              className="hover:text-white transition cursor-pointer bg-transparent border-none p-0"
+            >
+              Terms
+            </button>
+            <a
+              href="https://www.1atives.com/help"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition"
+            >
+              Help
             </a>
           </div>
         </div>
