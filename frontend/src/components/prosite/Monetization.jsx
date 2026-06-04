@@ -175,17 +175,17 @@ export default function Monetization({ dashboardImg }) {
                 </div>
               </motion.div>
             </div>
-            <div className="flex items-center mt-10 justify-center gap-4 sm:gap-6">
-              <div className="text-[80px] sm:text-[120px] lg:text-[120px] font-bold text-prosite-neon leading-none">
+            <div className="flex flex-col sm:flex-row items-center mt-10 justify-center gap-1 sm:gap-6">
+              <div className="text-[64px] sm:text-[120px] font-bold text-prosite-neon leading-none">
                 ZERO
               </div>
 
-              <div className="flex flex-col items-start">
-                <span className="text-2xl sm:text-4xl lg:text-4xl text-white">
+              <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                <span className="text-2xl sm:text-4xl text-white leading-tight">
                   Commission
                 </span>
 
-                         <span className="text-2xl sm:text-4xl lg:text-4xl text-white">
+                <span className="text-2xl sm:text-4xl text-white leading-tight">
                   Forever
                 </span>
               </div>

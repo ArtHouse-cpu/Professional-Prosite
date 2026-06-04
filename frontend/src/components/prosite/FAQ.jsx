@@ -44,26 +44,6 @@ const faqItems = [
       "Sell products, services, courses, and event tickets from one page. Use QR and NFC sharing, analytics, and Atives networking to drive traffic. Affiliate and engagement rewards on Atives can add extra upside depending on your plan.",
   },
   {
-    question: "Do you help me find clients or customers?",
-    answer:
-      "Prosite makes you discoverable and credible — portfolios, offers, and social proof in one link. Atives also surfaces opportunities and connections on the platform, but we don't guarantee specific leads; results depend on your niche, content, and outreach.",
-  },
-  {
-    question: "Can I validate my offer before going all-in?",
-    answer:
-      "Many creators launch a focused Prosite first — core portfolio plus one offer (e.g. a service package or mini-course) — to test messaging and pricing. You can expand modules as you learn what resonates.",
-  },
-  {
-    question: "Why use Prosite instead of separate tools or agencies?",
-    answer:
-      "Link-in-bio tools, website builders, course platforms, and booking apps each add cost and friction. Prosite unifies identity, content, commerce, and sharing so clients see one polished destination — not five scattered links.",
-  },
-  {
-    question: "How long until my Prosite is live?",
-    answer:
-      "You can build immediately after membership. Public visibility follows review approval. Complete profiles with clear media and accurate details move through faster; incomplete submissions may be held for revision.",
-  },
-  {
     question: "Can I share my Prosite with NFC and QR?",
     answer:
       "Yes. Every Prosite supports QR sharing out of the box. Optional NFC cards let people tap to open your page — ideal for events, studios, and in-person networking.",

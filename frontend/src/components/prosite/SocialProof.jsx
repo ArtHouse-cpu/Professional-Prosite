@@ -38,35 +38,17 @@ const metrics = [
   {
     icon: Users,
     label: "Served",
-    value: (
-      <>
-        <span>+</span>
-        <CountUp end={50} />
-        <span>K</span>
-      </>
-    ),
+    value: <CountUp end={50} prefix="+" suffix="K" />,
   },
   {
     icon: UserPlus,
     label: "Joined",
-    value: (
-      <>
-        <span>+</span>
-        <CountUp end={10} />
-        <span>K</span>
-      </>
-    ),
+    value: <CountUp end={10} prefix="+" suffix="K" />,
   },
   {
     icon: TrendingUp,
     label: "Generated",
-    value: (
-      <>
-        <span>+</span>
-        <CountUp end={500} />
-        <span>K</span>
-      </>
-    ),
+    value: <CountUp end={500} prefix="+" suffix="K" />,
   },
   {
     icon: Globe,
@@ -97,7 +79,7 @@ export default function SocialProof() {
                 <Icon className="h-3.5 w-3.5" />
                 {label}
               </div>
-              <div className="font-display text-[28px] sm:text-[34px] text-gradient-luxe leading-none">
+              <div className="font-display text-[28px] sm:text-[34px] text-gradient-luxe leading-none whitespace-nowrap">
                 {value}
               </div>
             </div>

@@ -1,9 +1,12 @@
-import React from "react";
-import { Sparkles } from "lucide-react";
+import React, { useState } from "react";
+import { Sparkles, Menu, X } from "lucide-react";
 import { useProsite } from "./PrositeProvider";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const { openCheckout } = useProsite();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <nav
       data-testid="prosite-navbar"
@@ -24,61 +27,81 @@ export default function Navbar() {
             <div className="absolute inset-0 rounded-lg blur-md bg-prosite-royal/40 -z-10" />
           </div>
 
- <div className="flex flex-col items-center gap-0">
-  <span className="font-display text-lg tracking-tight leading-none">
-    Prosite
-  </span>
-  <span className="text-[12px] text-gray-300 leading-none">
-    by Atives
-  </span>
-</div>
+          <div className="flex flex-col items-center gap-0">
+            <span className="font-display text-lg tracking-tight leading-none">
+              Prosite
+            </span>
+            <span className="text-[12px] text-gray-300 leading-none">
+              by Atives
+            </span>
+          </div>
         </a>
+
+        {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-7 text-[13px] text-white/65 font-body">
-          <a
-            href="#features"
-            className="hover:text-white transition-colors"
-            data-testid="nav-features"
-          >
-            Benefits
-          </a>
-          <a
-            href="#monetize"
-            className="hover:text-white transition-colors"
-            data-testid="nav-monetize"
-          >
-            Monetize
-          </a>
-          <a
-            href="#nfc"
-            className="hover:text-white transition-colors"
-            data-testid="nav-nfc"
-          >
-            NFC Card
-          </a>
-          <a
-            href="#pricing"
-            className="hover:text-white transition-colors"
-            data-testid="nav-pricing"
-          >
-            Pricing
-          </a>
-          <a
-            href="#faq"
-            className="hover:text-white transition-colors"
-            data-testid="nav-faq"
-          >
-            FAQ
-          </a>
+          <a href="#features" className="hover:text-white transition-colors">Benefits</a>
+          <a href="#monetize" className="hover:text-white transition-colors">Monetize</a>
+          <a href="#nfc" className="hover:text-white transition-colors">NFC Card</a>
+          <a href="#pricing" className="hover:text-white transition-colors">Pricing</a>
+          <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
         </div>
+
+        {/* Desktop CTA */}
         <button
           data-testid="navbar-cta-start-membership"
           onClick={openCheckout}
-          className="group relative inline-flex items-center gap-2 rounded-full bg-white text-black px-4 sm:px-5 py-2 text-[13px] font-semibold hover:bg-white/90 transition-all"
+          className="hidden md:inline-flex group relative items-center gap-2 rounded-full bg-white text-black px-4 sm:px-5 py-2 text-[13px] font-semibold hover:bg-white/90 transition-all"
         >
           <span>Get Prosite</span>
           <span className="text-prosite-royal">→</span>
         </button>
+
+        {/* Mobile Hamburger Button */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden flex items-center justify-center h-10 w-10 rounded-full bg-black/40 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-colors"
+        >
+          {isMenuOpen ? (
+            <X className="h-4.5 w-4.5 text-white" />
+          ) : (
+            <Menu className="h-4.5 w-4.5 text-white" />
+          )}
+        </button>
       </div>
+
+      {/* Mobile Dropdown Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden absolute top-[calc(100%+12px)] left-0 right-0 glass-strong rounded-3xl p-5 border border-white/10 flex flex-col gap-4 shadow-2xl"
+          >
+            <div className="flex flex-col gap-4 text-[14px] font-body text-white/70">
+              <a href="#features" onClick={() => setIsMenuOpen(false)} className="hover:text-white transition-colors">Benefits</a>
+              <a href="#monetize" onClick={() => setIsMenuOpen(false)} className="hover:text-white transition-colors">Monetize</a>
+              <a href="#nfc" onClick={() => setIsMenuOpen(false)} className="hover:text-white transition-colors">NFC Card</a>
+              <a href="#pricing" onClick={() => setIsMenuOpen(false)} className="hover:text-white transition-colors">Pricing</a>
+              <a href="#faq" onClick={() => setIsMenuOpen(false)} className="hover:text-white transition-colors">FAQ</a>
+            </div>
+            
+            <div className="h-px w-full bg-white/10 my-1" />
+            
+            <button
+              onClick={() => {
+                setIsMenuOpen(false);
+                openCheckout();
+              }}
+              className="w-full relative inline-flex justify-center items-center gap-2 rounded-full bg-white text-black px-5 py-3 text-[14px] font-semibold hover:bg-white/90 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+            >
+              <span>Get Prosite</span>
+              <span className="text-prosite-royal">→</span>
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

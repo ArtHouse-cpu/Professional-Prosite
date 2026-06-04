@@ -260,7 +260,7 @@ export default function CareerTrajectory() {
           </div>
 
           {/* Year markers */}
-          <div className="mt-3 grid grid-cols-4 text-[10.5px] uppercase tracking-[0.18em] text-white/35 font-body">
+          <div className="mt-3 grid grid-cols-4 text-[9px] sm:text-[10.5px] uppercase tracking-[0.18em] text-white/35 font-body">
             <span>Year 0</span>
             <span className="text-center">6 months</span>
             <span className="text-center">Year 1</span>

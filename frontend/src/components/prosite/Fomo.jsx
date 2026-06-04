@@ -41,7 +41,7 @@ export default function Fomo() {
           identities now will quietly dominate opportunities, clients, and culture for years.
         </motion.p>
 
-        <div className="mt-14 grid grid-cols-2 gap-4 max-w-3xl mx-auto">
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
           <div className="rounded-3xl glass p-6 sm:p-8 text-left">
             <div className="text-[10.5px] uppercase tracking-[0.22em] text-red-300/80 mb-3">Invisible Creator</div>
             <div className="font-display text-2xl text-white/65 leading-tight">Forgotten between scroll sessions.</div>
