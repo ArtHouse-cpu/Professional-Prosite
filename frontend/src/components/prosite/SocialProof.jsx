@@ -18,6 +18,7 @@ const testimonials = [
     name: "Arjun Verma",
     role: "Motion Designer · Bengaluru",
     img: "https://images.unsplash.com/photo-1762291629616-3e2c044c79a0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwzfHxjcmVhdGl2ZSUyMHByb2Zlc3Npb25hbCUyMHBvcnRyYWl0JTIwZGFyayUyMG1vb2R5fGVufDB8fHx8MTc3OTk2NDQ1OHww&ixlib=rb-4.1.0&q=85",
+     video: "https://res.cloudinary.com/dzwto9zbu/video/upload/v1780587971/Soulful_Mixed_Media_Art_by_Shiuli___Lifetime_PRO_Member_on_Atives___Join_the_Creative_Revolution_qvdzze.mp4",
   },
   {
     quote:
@@ -25,6 +26,7 @@ const testimonials = [
     name: "Sneha Iyer",
     role: "Illustrator & Educator · Pune",
     img: "https://images.pexels.com/photos/8089650/pexels-photo-8089650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+     video: "https://res.cloudinary.com/dzwto9zbu/video/upload/v1780587989/lavanya_P._Artist_1_oryczo.mp4",
   },
   {
     quote:
@@ -32,6 +34,15 @@ const testimonials = [
     name: "Rohan D'Souza",
     role: "Filmmaker · Goa",
     img: "https://images.unsplash.com/photo-1576280314550-773c50583407?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwzfHxmaWxtJTIwZGlyZWN0b3IlMjBjaW5lbWF0aWMlMjBsaWdodGluZ3xlbnwwfHx8fDE3Nzk5NjQ0NTh8MA&ixlib=rb-4.1.0&q=85",
+     video: "https://res.cloudinary.com/dzwto9zbu/video/upload/v1780588023/Bahaar_Testimonial_8k_1_jmj6p8.mp4",
+  },
+  {
+    quote:
+      "Lifetime pricing was the easiest creative purchase I've made. It pays for itself with one client inquiry.",
+    name: "Rohan D'Souza",
+    role: "Filmmaker · Goa",
+    img: "https://images.unsplash.com/photo-1576280314550-773c50583407?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwzfHxmaWxtJTIwZGlyZWN0b3IlMjBjaW5lbWF0aWMlMjBsaWdodGluZ3xlbnwwfHx8fDE3Nzk5NjQ0NTh8MA&ixlib=rb-4.1.0&q=85",
+     video: "https://res.cloudinary.com/dzwto9zbu/video/upload/v1780587936/Self-Taught_Charcoal_Artist_Featured_in_India_Today___Meet_Preeti___Lifetime_PRO_at_Atives_calvqz.mp4",
   },
 ];
 
@@ -149,18 +160,23 @@ export default function SocialProof() {
         </div>
 
         {/* Testimonials */}
-        <div className="mt-12 flex sm:grid sm:grid-cols-2 gap-4 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8 -mx-5 px-[10vw] sm:mx-0 sm:px-0">
-          {testimonials.map((t, i) => (
-            <motion.figure
-              key={t.name}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.06 }}
-              className={`snap-center shrink-0 w-[80vw] max-w-[320px] sm:w-auto sm:max-w-none rounded-3xl glass relative overflow-hidden flex flex-col ${
-                t.video ? "h-[480px] sm:h-[600px] p-0" : "p-6 sm:p-8 justify-between h-[480px] sm:h-auto"
-              }`}
-            >
+        <div className="mt-12 relative w-full lg:overflow-hidden">
+          {/* Subtle edge fade masks for desktop */}
+          <div className="hidden lg:block pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#05050A] to-transparent z-10" />
+          <div className="hidden lg:block pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#05050A] to-transparent z-10" />
+          
+          <div className="flex gap-4 sm:gap-6 overflow-x-auto lg:overflow-visible snap-x snap-mandatory lg:snap-none hide-scrollbar pb-8 -mx-5 px-[10vw] sm:-mx-8 sm:px-[15vw] lg:mx-0 lg:px-0 lg:w-max lg:[animation:marquee_40s_linear_infinite] lg:hover:[animation-play-state:paused]">
+            {[...testimonials, ...testimonials].map((t, i) => (
+              <motion.figure
+                key={t.name + i}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: (i % testimonials.length) * 0.06 }}
+                className={`snap-center lg:snap-start shrink-0 w-[80vw] max-w-[320px] sm:max-w-[340px] lg:max-w-[380px] rounded-3xl glass relative overflow-hidden flex flex-col ${
+                  t.video ? "h-[480px] sm:h-[520px] lg:h-[560px] p-0" : "p-6 sm:p-8 justify-between h-[480px] sm:h-[520px] lg:h-[560px]"
+                }`}
+              >
               {t.video ? (
                 <VideoCard t={t} />
               ) : (
@@ -184,6 +200,7 @@ export default function SocialProof() {
               )}
             </motion.figure>
           ))}
+          </div>
         </div>
       </div>
     </section>
