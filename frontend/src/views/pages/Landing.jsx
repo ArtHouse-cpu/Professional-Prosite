@@ -37,18 +37,30 @@ export default function Landing() {
         <Navbar />
         <Hero />
         <CreatorMarquee />
-        <CreativePain />
-        <Comparison />
-        <BeforeAfter creatorImg={IMG.creator} />
-        <CareerTrajectory />
-        <WhyClients />
-        <Monetization dashboardImg={IMG.dashboard} />
-        <CreatorEconomy />
-        <BentoGrid />
         <SocialProof />
-        <Fomo />
+        <BentoGrid />
+          <NFCSection nfcImg={IMG.nfc} />
+        <WhyClients />
+         <Monetization dashboardImg={IMG.dashboard} />
+         <Comparison />
+        <BeforeAfter creatorImg={IMG.creator} />
+         
+         {/* <CreatorEconomy /> */}
+
+           
+        {/* <CreativePain /> */}
+        
+      
+        
         <Pricing />
-         <NFCSection nfcImg={IMG.nfc} />
+       
+        <CareerTrajectory />
+        
+      
+       
+        {/* <Fomo /> */}
+        
+       
         <FAQ />
         <FinalCTA />
         <Footer />
